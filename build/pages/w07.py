@@ -129,12 +129,11 @@ facts=[('F01','관계 대수 연산자는 일반 집합 연산(합·교·차·�
        ('F03','노션 실습#3-3 LEFT OUTER JOIN 코드 칸에는 INNER JOIN이 적혀 있음 (설명은 LEFT JOIN 기준)','문헌 사실','ahn2025sqlops','lv3','실습#3-3'),
        ('F04','FULL OUTER JOIN은 LEFT JOIN과 RIGHT JOIN 결과를 UNION으로 합쳐 구현','문헌 사실','ahn2025sqlops','lv3','실습#3-9'),
        ('F05','관계 대수와 관계 해석은 표현력이 같다고 알려져 있음','문헌 사실','kim3ed','lv4','6장 (Codd의 정리로 알려짐)')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025sqlops',type='webpage',title='SQL 기본 문법 : 연산',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed812fbd9ce0ab3a3b7f1b',role='primary'),
       dict(id='ahn2025w06',type='webpage',title='06주차 : 관계 데이터 연산',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed8109aeb1cafd7b531709',role='background')],
 models=['고객·주문 데이터 (노션 실습 예제)','a·b 표 (노션 실습 그대로)','수강·필수 과목 디비전 예 (예시 데이터)','대결의 고객 수 배율 (규모를 바꿔 보는 설명용 시나리오)'],
 cover_alt='두 장의 투명 필름 표를 겹쳐 같은 값끼리 빛이 이어지는 모습을 네 캐릭터가 지켜보는 표지 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140"><circle cx="120" cy="70" r="52" fill="#e6eefb" fill-opacity=".8" stroke="#1e55c8"/><circle cx="180" cy="70" r="52" fill="#f6ecfa" fill-opacity=".7" stroke="#9b3fb5"/><text x="95" y="75" font-size="14" fill="#1e55c8">2 6 10</text><text x="140" y="75" font-size="14" fill="#13733a">4 8 12</text><text x="200" y="75" font-size="14" fill="#9b3fb5">16</text><text x="20" y="20" font-size="22" fill="#5b6874">σ π ⋈</text></svg>',
 prereq=['06'],
 cards={'join7':[['INNER JOIN — 벤 다이어그램에서 칠해지는 곳은?','두 원이 <b>겹치는 부분만</b> (4, 8, 12)'],['LEFT JOIN 은?','<b>왼쪽 원 전체</b> (a의 7개, 짝 없으면 NULL)'],['LEFT JOIN … WHERE b.t2 IS NULL 은?','<b>왼쪽 원에서 겹치는 부분을 뺀 곳</b> (2, 6, 10, 14) = 안티 조인'],['FULL OUTER JOIN 은?','<b>두 원 전체</b> (8개) — MariaDB는 LEFT ∪ RIGHT로'],['FULL … 교집합 제외 는?','<b>두 원에서 겹치는 부분만 뺀 곳</b> (2, 6, 10, 14, 16)'],['SEMI JOIN (EXISTS) 은?','겹치는 부분이지만 <b>왼쪽 칸만</b> (4, 8, 12)']]},
 js=r'''

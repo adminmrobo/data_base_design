@@ -154,13 +154,12 @@ facts=[('F01','데이터베이스 설계 5단계: 요구 사항 분석, 개념�
        ('F03','주문은 N:M 관계로 주문번호·주문수량·배송지·주문일자 속성을, 공급은 1:N 관계로 공급일자·공급량 속성을 가짐','문헌 사실','kim3ed','lv2','8장 그림 8-22'),
        ('F04','E-R 다이어그램의 릴레이션 변환 규칙 5가지(개체, N:M, 1:N, 1:1, 다중값 속성)','문헌 사실','kim3ed','lv3','8장 4절'),
        ('F05','RPG 사례: 캐릭터–능력치 1:1, 캐릭터–아이템은 인벤토리를 통한 N:M, 캐릭터–스킬 N:M','문헌 사실','ahn2025rpg','lv4','RPG 캐릭터·아이템 시스템 설계')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025w12design',type='report',title='데이터베이스설계 12주차 강의 교안: 데이터베이스 설계',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025rpg',type='report',title='RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025w04erd',type='report',title='데이터베이스 설계 4주차 — ERD 작성, 관계 데이터 모델링, 정규화 과정 및 실무 적용',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='background')],
 models=['한빛 마트 요구 사항 14문장 (교재 8장을 따라 정리)','한빛 마트 테이블의 자료형·길이·예시 데이터 (물리 설계 예시)','RPG 사례 (강의용으로 재구성한 사례)','대결의 구조 변경 횟수 (요구 순서에 따라 센 설명용 시나리오)'],
 cover_alt='책상 위에 요구 사항 메모 14장이 놓이고, 그 옆으로 설계도·도면·완성된 테이블 모형이 차례로 늘어선 장면 (대체 그림)',
-cover_svg='<svg width="320" height="130" viewBox="0 0 320 130">'+''.join('<rect x="%d" y="%d" width="40" height="50" rx="4" fill="%s" stroke="#9aa5b1"/>'%(10+i*62,40,c) for i,c in enumerate(['#fff','#f6ecfa','#e6eefb','#fdf3e1','#e7f5ec']))+''.join('<path d="M%d 65 h12" stroke="#5b6874" marker-end="url(#a11)"/>'%(52+i*62) for i in range(4))+'<defs><marker id="a11" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#5b6874"/></marker></defs><text x="16" y="120" font-size="12" fill="#5b6874">요구  개념  논리  물리  구현</text></svg>',
 prereq=['10'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

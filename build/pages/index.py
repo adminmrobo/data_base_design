@@ -1,9 +1,6 @@
 # 목차(첫 화면)
 IDX['desc'] = '데이터베이스 설계 15회차 연구실 해설 — 1~7주 이론, 8주 중간 REVIEW, 9~14주 SQL·설계·정규화·트랜잭션·응용, 15주 기말 REVIEW. SQL 실습은 노션 실습 페이지와 페이지 안 SQL 실습실로.'
 IDX['cover_alt'] = '하얀 연구실 복도에 열다섯 개의 문이 줄지어 있고, 네 캐릭터가 첫 문 앞에 모인 표지 (대체 그림)'
-IDX['cover_svg'] = '<svg width="320" height="140" viewBox="0 0 320 140">' + ''.join(
-    '<rect x="%d" y="%d" width="16" height="%d" rx="3" fill="%s" stroke="#9aa5b1"/>' % (8 + i * 20, 130 - (60 + (i % 5) * 12), 60 + (i % 5) * 12, '#e7f5ec' if i in (7, 14) else '#ffffff')
-    for i in range(15)) + '</svg>'
 IDX['body'] = '''
 <header class="hero"><div class="wrap">
 <div class="kicker">강남대학교 · 데이터베이스 설계 · 2025-2학기 강의안을 연구실 해설로</div>

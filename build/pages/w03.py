@@ -124,12 +124,11 @@ facts=[('F01','DBMS는 파일 시스템의 데이터 중복과 데이터 종속 
        ('F03','DBMS 장점 8가지(중복 통제, 독립성, 동시 공유, 보안, 무결성, 표준화, 회복, 개발비 절감)와 단점 3가지(비용, 복잡한 백업·회복, 중앙 관리 취약점)','문헌 사실','ahn2025w03','lv4','3주차 교안'),
        ('F04','롤백은 업데이트 오류 시 업데이트 이전 저널 파일로 이전 상태로 되돌리는 것','문헌 사실','ahn2025w03','lv3','3주차 교안 등장 배경 3'),
        ('F05','응용 프로그램이 파일의 구성 방법과 물리적 저장 구조에 맞게 작성됨(종속)','문헌 사실','kim3ed','lv2','2장 (교안 43쪽 인용)')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025w03',type='report',title='데이터베이스설계 3주차 강의 교안: 데이터베이스 관리 시스템',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025rpg',type='report',title='RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='background',note='파일 시스템의 한계 분석 사례')],
 models=['부서별 파일 주소 갱신 실험 (모의)','형식 변경 파급 표 (설명용 예)','account 테이블 잔액 (예시값)','엑셀 vs DBMS 비용 모형 (설명용 예시값, 실제 가격 아님)'],
 cover_alt='부서별 서류철 네 개에 같은 주소가 다르게 적혀 있고, 가운데 하나의 금고로 화살표가 모이는 장면 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140">'+''.join('<rect x="%d" y="%d" width="54" height="40" rx="5" fill="%s" stroke="#9aa5b1"/><line x1="%d" y1="%d" x2="190" y2="70" stroke="#c9302c" stroke-dasharray="4 3"/>'%(10,8+i*34,'#fcebea' if i==3 else '#fff',64,28+i*34) for i in range(4))+'<rect x="190" y="40" width="90" height="60" rx="10" fill="#e7f5ec" stroke="#13733a" stroke-width="2"/><circle cx="235" cy="70" r="14" fill="none" stroke="#13733a" stroke-width="3"/></svg>',
 prereq=['02'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

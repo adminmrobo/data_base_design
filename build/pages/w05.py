@@ -118,12 +118,11 @@ facts=[('F01','데이터 모델링 3단계: 개념적(ERD) → 논리적(관계 
        ('F03','도서관 ERD 완성본: 회원–대여 1:N, 도서–대여 1:N, 카테고리–도서 1:N','문헌 사실','ahn2025w04erd','lv4','「ERD 작성 실습 5단계 완성본 해설」'),
        ('F04','N:M 관계를 외래키로 직접 표현하려는 것은 대표적 오답 패턴, N:M은 별도 릴레이션으로 변환','문헌 사실','ahn2025w04erd','lv4','「변환 실습 해설」 오답 패턴'),
        ('F05','다중값 속성은 이중 타원, 유도 속성은 점선 타원으로 표기','문헌 사실','kim3ed','lv3','4장')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025w04erd',type='report',title='데이터베이스 설계 4주차 — ERD 작성, 관계 데이터 모델링, 정규화 과정 및 실무 적용',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025worst',type='webpage',title='데이터 베이스 설계 : worst case',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed810783e8ea080d594176',role='background')],
 models=['추상화 단계 애니메이션 (설명용 모형)','요구사항 문장 형광펜 정답 (교안 해설에 따른 한 가지 해석)','관계 대응 수 그림의 개체·선 (예시)','대결의 수강 신청 6건 (예시 데이터)'],
 cover_alt='큰 화이트보드에 사각형·타원·마름모가 선으로 이어진 ERD가 그려져 있고, 네 캐릭터가 마커를 들고 모여 있는 표지 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140"><rect x="10" y="50" width="70" height="36" rx="3" fill="#fff" stroke="#16212b" stroke-width="1.5"/><polygon points="150,46 182,68 150,90 118,68" fill="#f6ecfa" stroke="#9b3fb5" stroke-width="1.5"/><rect x="220" y="50" width="70" height="36" rx="3" fill="#fff" stroke="#16212b" stroke-width="1.5"/><line x1="80" y1="68" x2="118" y2="68" stroke="#16212b"/><line x1="182" y1="68" x2="220" y2="68" stroke="#16212b"/><ellipse cx="45" cy="20" rx="26" ry="12" fill="#fff" stroke="#1e55c8"/><ellipse cx="45" cy="118" rx="26" ry="12" fill="#fff" stroke="#1e55c8" stroke-dasharray="4 3"/><ellipse cx="255" cy="20" rx="26" ry="12" fill="#fff" stroke="#1e55c8"/><ellipse cx="255" cy="20" rx="21" ry="8" fill="none" stroke="#1e55c8"/><line x1="45" y1="32" x2="45" y2="50" stroke="#1e55c8"/><line x1="45" y1="86" x2="45" y2="106" stroke="#1e55c8"/><line x1="255" y1="32" x2="255" y2="50" stroke="#1e55c8"/></svg>',
 prereq=['04'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

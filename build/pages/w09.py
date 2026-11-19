@@ -120,13 +120,12 @@ facts=[('F01','SQL은 System R을 위한 언어 SEQUEL에서 유래, ANSI·ISO�
        ('F04','ON DELETE 옵션: NO ACTION, CASCADE, SET NULL, SET DEFAULT','문헌 사실','kim3ed','lv3','7장 2절 (교안 18쪽)'),
        ('F05','노션 실습#2-6의 코드 “DROP TABLE customers; DROP COLUMN 근속년수;”는 ALTER TABLE employees DROP COLUMN 근속년수로 고쳐야 실행됨','문헌 사실','ahn2025sqlbasic','lv4','실습#2-6'),
        ('F06','노션 실습#2-7은 인코딩 오류 시 SHOW CREATE DATABASE로 확인하고 utf8mb4로 MODIFY','문헌 사실','ahn2025sqlbasic','lv2','실습#2-7')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025sqlbasic',type='webpage',title='SQL 기본 문법',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed8157b748e6104aa8e2c9',role='primary'),
       dict(id='ahn2025sqltext',type='webpage',title='SQL 기본 문법 (교재 예제 코드 수정)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed815294ccd69faa520526',role='primary'),
       dict(id='ahn2025dcltcl',type='webpage',title='SQL 문법 정리 (DCL, TCL 추가)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed8198b223c82808756ddd',role='background')],
 models=['employees·고객 표 데이터 (노션·교재 예제)','부서·사원 ON DELETE 실험 데이터 (교재 홍보부 예를 바탕으로 한 예시)','대결의 잘못된 입력 10건 (예시) — 실행은 페이지 안 SQL 엔진'],
 cover_alt='작업대 위에서 빈 표 양식에 자물쇠 모양의 규칙 스티커를 붙이는 장면을 네 캐릭터가 지켜보는 표지 (대체 그림)',
-cover_svg='<svg width="280" height="140" viewBox="0 0 280 140"><rect x="20" y="20" width="170" height="104" rx="6" fill="#fff" stroke="#9aa5b1"/>'+''.join('<rect x="32" y="%d" width="70" height="14" rx="3" fill="#eef2f6"/><rect x="110" y="%d" width="66" height="14" rx="3" fill="#fff" stroke="#d5dbe2"/>'%(34+i*22,34+i*22) for i in range(4))+'<g transform="translate(210,40)"><rect x="0" y="22" width="44" height="36" rx="6" fill="#e7f5ec" stroke="#13733a" stroke-width="2"/><path d="M10 22 v-8 a12 12 0 0 1 24 0 v8" fill="none" stroke="#13733a" stroke-width="4"/></g></svg>',
 prereq=['08'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

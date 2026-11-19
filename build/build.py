@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+import sys as _s, os as _o; _s.path.insert(0, _o.path.dirname(_o.path.abspath(__file__)))
 # -*- coding: utf-8 -*-
 """데이터베이스 설계 — 연구실 해설 시리즈 빌드
    build/pages/wNN.py (페이지 명세) → weeks/wNN_slug.html (단일 파일), index.html, cover_manifest.json, data/KG_00_registry.json
@@ -184,10 +185,11 @@ def esc_json(o):
     return json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
 
 def cover(P, strip=False):
-    prop = P.get('cover_svg', '')
+    import pixel_cover
+    prop = pixel_cover.scene(P['num'])
     shelf = ''.join(face(w, m, 128) for w, m in (('fly', 'point'), ('asst', 'smile'), ('doc', 'front'), ('robo', 'coin')))
     return ('<!-- lab-cover --><header class="cover%s" id="cover" data-img="cover_%s" role="img" aria-label="%s">'
-            '<div class="prop" aria-hidden="true">%s</div><div class="floor"></div><div class="shelf">%s</div>'
+            '%s<div class="shelf">%s</div>'
             '<span class="cover-chip">%s · %s</span></header><!-- /lab-cover -->') % (
         ' cover-strip' if strip else '', P['num'], E(P['cover_alt']), prop, shelf, SERIES, P['chip'])
 
@@ -345,8 +347,8 @@ def index_html(pages, IDX):
             fn, ' class="rev"' if rev else '', P['chip'], E(P['title']), E(P['toc']), ''.join(face(w, m, 30) for w, m in P.get('toc_faces', [('doc', 'front'), ('asst', 'smile')]))))
     body = IDX['body'].replace('{{TOC}}', '<div class="toc">%s</div>' % ''.join(cards))
     shelf = ''.join(face(w, m, 128) for w, m in (('fly', 'point'), ('asst', 'proud'), ('doc', 'front'), ('robo', 'smile')))
-    cov = ('<!-- lab-cover --><header class="cover" id="cover" data-img="cover_index" role="img" aria-label="%s"><div class="prop" aria-hidden="true">%s</div><div class="floor"></div><div class="shelf">%s</div>'
-           '<span class="cover-chip">%s · 목차</span></header><!-- /lab-cover -->') % (E(IDX['cover_alt']), IDX['cover_svg'], shelf, SERIES)
+    cov = ('<!-- lab-cover --><header class="cover" id="cover" data-img="cover_index" role="img" aria-label="%s">%s<div class="shelf">%s</div>'
+           '<span class="cover-chip">%s · 목차</span></header><!-- /lab-cover -->') % (E(IDX['cover_alt']), __import__('pixel_cover').scene('00'), shelf, SERIES)
     keys = set(re.findall(r'data-who="(\w+)" data-mood="(\w+)"', body + cov + ''.join(cards)))
     sprites = {}
     for k in sorted({'%s_%s' % k for k in keys}):

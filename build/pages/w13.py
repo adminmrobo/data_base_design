@@ -16,7 +16,8 @@ hero_talk=[
  ('doc','front','트랜잭션은 <b>“전부 아니면 전무”</b>다. 송금의 출금과 입금은 둘 다 되거나 둘 다 안 되어야 한다.'),
  ('asst','smile','동시에 두 명이 같은 계좌에 입금하면요? 둘 다 들어가겠죠?'),
  ('fly','clip','순서가 엉키면 한 사람의 입금이 사라질 수 있어. 오늘 대결에서 직접 세어 보자.'),
- ('robo','smile','잠금(락)은 느려! 나는 잠그지 않고 그냥 빨리 처리할래!')],
+ ('robo','smile','잠금(락)은 느려! 나는 잠그지 않고 그냥 빨리 처리할래!'),
+ ('doc','front','REDO와 UNDO가 처음에 뒤섞이는 건 정상이다. “커밋이 로그에 있나?” 질문 하나로 정리된다.')],
 crew=[('doc','front','ACID·회복·로킹 정리, 판정'),('asst','smile','실습 진행, 숫자 발표'),('fly','clip','로그를 읽고 REDO/UNDO 판정'),('robo','smile','“잠금 없이 빠르게”파 (오늘 대결)')],
 recap='3주차: DBMS는 ROLLBACK으로 반쯤 끝난 송금을 되돌린다(파일 시스템은 못 함). 9주차: DDL은 자동 커밋. 10주차: UPDATE·DELETE에는 WHERE를 꼭. — 오늘 이것들의 원리를 봅니다.',
 notion=[('노션 일정표 「12주차 : 회복과 병행제어」 (노션 일정의 주차 번호는 이 사이트와 다릅니다)', NOTION+'1ab17a4520ed81b18756d05b5ee83b2a', '회복·병행 제어 회차 페이지'),
@@ -112,12 +113,11 @@ facts=[('F01','트랜잭션의 특성 ACID: 원자성·일관성·격리성·지
        ('F02','노션 TCL 예제: START TRANSACTION 후 DELETE를 ROLLBACK하면 변경이 취소된다','문헌 사실','ahn2025sqltcl','lv2','#4-2 ROLLBACK'),
        ('F03','즉시 갱신 회복: 장애 시 커밋된 트랜잭션은 REDO, 미완료 트랜잭션은 UNDO, 검사 시점으로 회복 범위를 줄임','문헌 사실','kim3ed','lv3','10장 회복 기법'),
        ('F04','병행 수행 문제: 갱신 분실, 모순성, 연쇄 복귀 — 로킹과 2단계 로킹 규약으로 해결, 교착 상태 가능','문헌 사실','kim3ed','lv4','10장 병행 제어')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025sqltcl',type='webpage',title='SQL 문법 정리 (DCL, TCL 추가)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed8198b223c82808756ddd',role='primary'),
       dict(id='ahn2025rpg',type='report',title='RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='background')],
 models=['계좌 송금 데이터 (설명용 예시값)','회복 판정용 로그 (교재 10장 유형으로 만든 예)','갱신 분실 시뮬레이터의 순서 (교재 유형)','대결 시뮬레이션 (창구 2곳 × 입금 10건, 고정 seed 무작위 순서)'],
 cover_alt='은행 창구 두 곳 앞에 같은 금고가 놓이고, 한쪽은 열쇠를 기다리는 줄, 다른 쪽은 동전이 새어 나가는 장면 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140"><rect x="115" y="30" width="70" height="80" rx="8" fill="#fdf3e1" stroke="#b7791f" stroke-width="2"/><circle cx="150" cy="70" r="14" fill="#fff" stroke="#b7791f" stroke-width="2"/><rect x="20" y="50" width="60" height="40" rx="6" fill="#e7f5ec" stroke="#13733a"/><text x="50" y="75" font-size="13" text-anchor="middle" fill="#13733a">LOCK</text><rect x="220" y="50" width="60" height="40" rx="6" fill="#fcebea" stroke="#c9302c"/><text x="250" y="75" font-size="13" text-anchor="middle" fill="#c9302c">NO</text><circle cx="200" cy="118" r="5" fill="#d69e2e"/><circle cx="214" cy="126" r="5" fill="#d69e2e"/></svg>',
 prereq=['12'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

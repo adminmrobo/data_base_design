@@ -1,10 +1,10 @@
 # 표지 지시문 모음 — 데이터베이스 설계 (data_base_design)
 
-SKILL 18-14 규칙. 목차 1장 + 회차 15장(키 `cover_index`, `cover_01`~`cover_15`). 모든 표지는 넷 모두 등장, 16:9, 글자 없음. 생물 앵커가 아니므로 현미경·초파리 해부 소품을 넣지 않는다(18-13).
+SKILL v1.15 18-14 규칙 — **그림체는 16비트 RPG풍 픽셀아트 필수(고정)**. 매끈한 일러스트·벡터·3D로 받으면 다시 생성한다(18-15). 목차 1장 + 회차 15장(키 `cover_index`, `cover_01`~`cover_15`). 모든 표지는 넷 모두 등장, 16:9, 글자 없음. 생물 앵커가 아니므로 현미경·초파리 해부 소품을 넣지 않는다(18-13).
 
 **참고 이미지 (함께 올리기):** 네 캐릭터 기본 그림 4장 (기준: GitHub `adminmrobo/fruitfly-lab-expressions`).
 
-그림을 받으면 `assets/img/cover_{N}.webp`(1600×900, 220 KB 이하)로 바꿔 넣고, 각 페이지 맨 위 `<!-- lab-cover -->` 대체 표지를 18-15 절차로 교체한다. `cover_manifest.json`의 해당 항목 `status`도 바꾼다.
+그림을 받으면 `assets/img/cover_{N}.webp`(1600×900, 220 KB 이하)로 바꿔 넣고, 각 페이지 맨 위 `<!-- lab-cover -->` 픽셀 대체 표지(픽셀 소품 + 픽셀 캐릭터 넷)를 18-15 절차로 교체한다. 받은 그림이 픽셀아트가 아니면 쓰지 않는다. `cover_manifest.json`의 해당 항목 `status`도 바꾼다.
 
 <a id="cover_index"></a>
 
@@ -13,6 +13,7 @@ SKILL 18-14 규칙. 목차 1장 + 회차 15장(키 `cover_index`, `cover_01`~`co
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_index · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `index.html` |
 | 장소 (앵커) | B 연구실 · 방이 줄지은 복도 |
 | 주제 은유 | 15개의 방문이 줄지은 밝은 복도, 8번과 15번 방문만 초록색 |
@@ -24,14 +25,16 @@ SKILL 18-14 규칙. 목차 1장 + 회차 15장(키 `cover_index`, `cover_01`~`co
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a long bright corridor of the lab with fifteen identical doors in a row, two of the doors painted mint green, a big blank map of circles and lines on the wall, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -46,7 +49,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_01"></a>
 
@@ -55,6 +58,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_01 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w01_course_guide.html` |
 | 장소 (앵커) | D 쇼핑몰 화면 뒤편 |
 | 주제 은유 | 투명한 쇼핑 앱 화면 뒤로 보이는 정리된 서랍장 |
@@ -66,14 +70,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a giant transparent shopping app screen standing in the lab, behind it a neat cabinet of labeled-less drawers glowing softly, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -88,7 +94,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_02"></a>
 
@@ -97,6 +103,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_02 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w02_data_and_database.html` |
 | 장소 (앵커) | B 연구실 창고 |
 | 주제 은유 | 원재료 상자와 정리된 선반 사이의 저울 |
@@ -108,14 +115,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a storage room with raw unlabeled crates on one side and tidy shelves on the other, a brass scale between them, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -130,7 +139,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_03"></a>
 
@@ -139,6 +148,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_03 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w03_dbms.html` |
 | 장소 (앵커) | C 금고실 |
 | 주제 은유 | 두 개의 금고 문 — 하나는 낡은 서류함, 하나는 관리인이 지키는 금고 |
@@ -150,14 +160,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a vault room with an old filing cabinet overflowing with copies on the left and a round vault door with a small control panel on the right, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -172,7 +184,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_04"></a>
 
@@ -181,6 +193,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_04 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w04_database_system.html` |
 | 장소 (앵커) | B 세 층 건물 모형 |
 | 주제 은유 | 세 층으로 나뉜 투명 건물 모형과 층 사이 계단 |
@@ -192,14 +205,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a transparent three-story building model on a lab table, each floor a different pastel color, small staircases linking the floors, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -214,7 +229,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_05"></a>
 
@@ -223,6 +238,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_05 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w05_er_modeling.html` |
 | 장소 (앵커) | D 도서관 설계실 |
 | 주제 은유 | 네모·동그라미·마름모 나무 블록과 연결 끈 |
@@ -234,14 +250,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a library design room, wooden blocks shaped as rectangles, ovals and diamonds on a big table connected by colored strings, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -256,7 +274,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_06"></a>
 
@@ -265,6 +283,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_06 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w06_relational_model.html` |
 | 장소 (앵커) | B 열쇠 보관함 |
 | 주제 은유 | 열쇠가 꽂힌 표 모양 보관함, 열쇠마다 다른 모양 |
@@ -276,14 +295,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a wall key cabinet shaped like a grid table, each slot holding a differently shaped key, a few keys connected by thin ribbons to another cabinet, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -298,7 +319,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_07"></a>
 
@@ -307,6 +328,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_07 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w07_relational_operations.html` |
 | 장소 (앵커) | B 체 거르기 실험대 |
 | 주제 은유 | 카드 더미를 거르는 체와 카드를 맞물리는 톱니 |
@@ -318,14 +340,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a lab bench with a sieve sorting colored cards, two stacks of cards being zipped together by a small gear machine, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -340,7 +364,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_08"></a>
 
@@ -349,6 +373,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_08 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w08_midterm_review.html` |
 | 장소 (앵커) | B 복도 중간의 초록 문 |
 | 주제 은유 | 열린 초록 문 안 벽에 붙은 일곱 장의 지도 |
@@ -360,14 +385,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a mint green door wide open in the middle of the corridor, inside a small room with seven framed blank maps on the wall, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -382,7 +409,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_09"></a>
 
@@ -391,6 +418,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_09 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w09_sql_ddl.html` |
 | 장소 (앵커) | B 틀 만들기 공방 |
 | 주제 은유 | 빈 진열장 틀과 규칙 도장, 틀에 새겨지는 홈 |
@@ -402,14 +430,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a workshop corner where empty display shelves are being built, small stamping tools carving grooves into the shelf frames, a blank rulebook stand, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -424,7 +454,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_10"></a>
 
@@ -433,6 +463,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_10 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w10_sql_dml.html` |
 | 장소 (앵커) | D 마트 창고 |
 | 주제 은유 | 선반에서 꺼내지는 상자, 상자를 묶는 끈과 바구니 |
@@ -444,14 +475,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a bright market storeroom, labeled-less boxes being picked from shelves into baskets, some boxes grouped with ribbons, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -466,7 +499,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_11"></a>
 
@@ -475,6 +508,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_11 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w11_database_design_process.html` |
 | 장소 (앵커) | D 설계실 |
 | 주제 은유 | 메모 종이 더미 → 설계도 → 도면 → 모형으로 이어지는 다섯 탁자 |
@@ -486,14 +520,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a design studio with five tables in a row: a pile of sticky notes, a sketch of boxes and diamonds, a blueprint, a material sample board, a finished small cabinet model, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -508,7 +544,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_12"></a>
 
@@ -517,6 +553,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_12 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w12_normalization.html` |
 | 장소 (앵커) | B 재단 탁자 |
 | 주제 은유 | 큰 장부 한 장을 가위로 네 장의 깔끔한 카드로 나누기 |
@@ -528,14 +565,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a cutting table with one huge messy ledger sheet being cut by big scissors into four neat cards, a dotted line showing they still fit back together, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -550,7 +589,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_13"></a>
 
@@ -559,6 +598,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_13 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w13_transaction_recovery_concurrency.html` |
 | 장소 (앵커) | C 은행 창구 |
 | 주제 은유 | 두 창구가 한 금고를 공유, 한쪽에는 열쇠 걸이, 바닥의 일지책 |
@@ -570,14 +610,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a small bank counter with two windows sharing one round vault, a key hook beside one window, an open logbook on a stand, a few coins on the counter, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -592,7 +634,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_14"></a>
 
@@ -601,6 +643,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_14 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w14_database_applications.html` |
 | 장소 (앵커) | D 우편물 분류실 |
 | 주제 은유 | 서류철 책장, 스티커가 붙은 봉투 더미, 사진 상자, 찾아보기 카드함 |
@@ -612,14 +655,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: a mail sorting room with a bookcase of binders, a pile of envelopes with blank colorful stickers, boxes of photos, a small index card drawer, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -634,7 +679,7 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`
 
 <a id="cover_15"></a>
 
@@ -643,6 +688,7 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 | 항목 | 내용 |
 |---|---|
 | 키 · 판 | cover_15 · L (16:9, 1920 이상) |
+| 그림체 | 16비트 RPG풍 픽셀아트 (필수, 고정) |
 | 페이지 | `weeks/w15_final_review.html` |
 | 장소 (앵커) | B 복도 끝 초록 문 |
 | 주제 은유 | 복도 끝 두 번째 초록 문, 안에 여섯 장의 지도와 졸업 모자 |
@@ -654,14 +700,16 @@ No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol
 ```
 웹페이지 맨 위에 거는 표지 그림 1장을 만들어 줘.
 - 비율 16:9, 가로 1920px 이상
-- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 그림체·같은 외형으로, 넷 모두 등장
+- 그림체는 반드시 16비트 RPG풍 픽셀아트 (네모 픽셀이 보이게, 매끈한 일러스트·벡터·수채화·3D 금지)
+- 첨부한 참고 이미지의 네 캐릭터(박사, 조수, 초파리 연구원, 주판봇)를 같은 외형으로, 넷 모두 픽셀아트로 등장
 - 그림 안에 글자·숫자·로고를 넣지 말 것
 - 얼굴과 손은 가장자리에서 떨어진 가운데 영역에, 왼쪽 아래 구석은 밝고 단순하게
 아래 영어 프롬프트를 그대로 써 줘.
 
 Website top cover illustration, wide 16:9.
-Match the art style, proportions and colors of the attached reference images exactly
-  (if there are no reference images: 16-bit RPG style pixel art, bold dark outline, 2–3 tone shading, small highlights).
+Art style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,
+  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.
+Match the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.
 bright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.
 Scene: the second mint green door at the end of the corridor, inside a room with six framed blank maps and a graduation cap on a stand, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.
 All four characters together:
@@ -676,4 +724,4 @@ Mood: curious, friendly rivalry, the moment before the result.
 No text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.
 ```
 
-**고칠 때 (같은 대화에서):** `Same four characters, same art style and composition. Change only: {고칠 점}. Still no text.`
+**고칠 때 (같은 대화에서):** `Same four characters, same 16-bit pixel-art style and composition. Change only: {고칠 점}. Still pixel art, still no text.`

@@ -122,12 +122,11 @@ facts=[('F01','데이터는 현실에서 관찰·측정해 수집한 값, 정보
        ('F03','데이터베이스는 공유·통합·저장·운영 데이터의 성격을 가진다','문헌 사실','kim3ed','lv2','1장 (교안 23쪽 인용)'),
        ('F04','데이터베이스의 특징: 실시간 접근, 계속 변화, 동시 공유, 내용으로 참조','문헌 사실','kim3ed','lv3','1장 (교안 24쪽 인용)'),
        ('F05','형태에 따라 정형·반정형·비정형으로 분류','문헌 사실','ahn2025w02','lv4','2주차 교안')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='ahn2025w02',type='report',title='데이터베이스설계 2주차 강의 교안: 데이터와 데이터베이스',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025syllabus',type='webpage',title='데이터베이스설계 (2025년 2학기) 강의 개요',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'2025-2-1ab17a4520ed81cd9040dbae826a48ad',role='background')],
 models=['4주 판매 데이터 (설명용 예시값, 고정 값)','네 조건 판정 사례의 정답 (교재 정의에 따른 해석)','도서관 book 테이블 (예시 데이터)','결혼정보회사 회원 카드 분류 예 (교안 실습 주제를 바탕으로 만든 예시)'],
 cover_alt='연구실 탁자 위 숫자 카드 더미가 그래프와 결정 메모로 바뀌어 가는 장면을 네 캐릭터가 지켜보는 표지 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140"><g font-family="monospace" font-size="13" fill="#5b6874">'+''.join('<rect x="%d" y="%d" width="34" height="22" rx="4" fill="#fff" stroke="#9aa5b1"/><text x="%d" y="%d">%s</text>'%(10+(i%4)*38,20+(i//4)*28,16+(i%4)*38,35+(i//4)*28,v) for i,v in enumerate(['12','9','15','30','11','10','14','28','13','8','16','32']))+'</g><path d="M170 70 h30" stroke="#9aa5b1" stroke-width="2" marker-end="url(#a)"/><defs><marker id="a" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8z" fill="#9aa5b1"/></marker></defs><g fill="#13733a">'+''.join('<rect x="%d" y="%d" width="12" height="%d"/>'%(210+i*14,110-h,h) for i,h in enumerate([30,22,34,70,28]))+'</g></svg>',
 prereq=['01'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

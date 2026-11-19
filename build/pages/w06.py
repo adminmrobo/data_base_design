@@ -118,13 +118,12 @@ facts=[('F01','관계 데이터 모델은 1970년 E. F. Codd가 제안','문헌 
        ('F03','릴레이션의 특징: 튜플의 유일성·무순서, 속성의 무순서·원자성','문헌 사실','kim3ed','lv2','5장 (교안 인용)'),
        ('F04','기본키 선택 기준: NULL 가능 속성 포함 후보키 부적합, 자주 변경되는 속성 포함 부적합, 단순한 후보키 선택','문헌 사실','ahn2025w04','lv3','4주차 교안 「기본키 선택의 기준」'),
        ('F05','외래키를 설정하려면 참조하는 열이 기본키 또는 고유 제약 조건으로 지정되어 있어야 함','문헌 사실','ahn2025sqltext','lv4','노션 실습#3-2C 해설')],
-refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인'),
+refs=[dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='primary',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준'),
       dict(id='codd1970relational',type='article-journal',title='A Relational Model of Data for Large Shared Data Banks',author=[{'family':'Codd','given':'E. F.'}],issued={'date-parts':[[1970]]},**{'container-title':'Communications of the ACM','volume':'13','issue':'6','page':'377-387'},role='background',verified={'title':True,'authors':True,'year':True,'venue':True,'doi':False}),
       dict(id='ahn2025w04',type='report',title='데이터베이스설계 4주차 강의 교안: 관계 데이터 모델',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025sqltext',type='webpage',title='SQL 기본 문법 (교재 예제 코드 수정)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed815294ccd69faa520526',role='primary')],
 models=['customer_table·product_table·order_table 데이터 (노션 실습 예제 그대로)','릴레이션 특징 위반 표 (설명용 예)','키 판정기 고객 표 (예시 데이터)','대결의 수강 기록 (예시)'],
 cover_alt='책상 위에 커다란 표가 펼쳐져 있고 맨 왼쪽 칸 위에 황금 열쇠가 놓인 장면을 네 캐릭터가 들여다보는 표지 (대체 그림)',
-cover_svg='<svg width="280" height="140" viewBox="0 0 280 140"><rect x="10" y="10" width="200" height="120" rx="8" fill="#fff" stroke="#9aa5b1"/><rect x="10" y="10" width="50" height="120" rx="8" fill="#fdf3e1" stroke="#a35c00"/>'+''.join('<line x1="10" y1="%d" x2="210" y2="%d" stroke="#d5dbe2"/>'%(10+24*i,10+24*i) for i in range(1,5))+'<g transform="translate(220,40)"><circle cx="18" cy="18" r="14" fill="none" stroke="#a35c00" stroke-width="5"/><rect x="28" y="15" width="30" height="7" fill="#a35c00"/><rect x="48" y="22" width="5" height="9" fill="#a35c00"/></g></svg>',
 prereq=['05'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

@@ -100,10 +100,10 @@ duel=dict(q='SNS 피드 화면 — 정규화된 표 vs 문서형',
  intro='피드 화면은 글 6개를 <b>태그와 함께</b> 보여 줍니다(이 서비스에서 가장 자주 하는 조회). 초파리는 <b>정규화된 표 3개</b>(게시글·태그·글태그, 매번 JOIN), 주판봇은 <b>문서형</b>(글 문서 안에 태그 배열). 피드를 한 번 그릴 때 읽는 행·문서 수를 셉니다.',
  fly_pick='정규화된 표 3개 + JOIN', fly_line='태그는 태그 표에 한 번만. 피드는 JOIN으로 다시 합치면 돼.',
  robo_pick='문서형 — 글 안에 태그 배열', robo_line='피드는 글이랑 태그를 늘 같이 보여 주잖아! 처음부터 같이 담아 두자!',
- metric='피드 1회에 읽는 행·문서 수 (적을수록 이김)', higher=False, step=3,
+ metric='피드 1회에 읽는 행·문서 수 (예시 데이터 6개 기준 · 적을수록 이김)', higher=False, step=3,
  after='<div id="duel14t"></div>',
  run='return PAGE.duel();',
- announce='return "피드 한 번에 초파리는 <b>"+r.fly+"행</b>(게시글 "+r.p+" + 글태그 "+r.pt+" + 태그 "+r.pt+"), 주판봇은 문서 <b>"+r.robo+"개</b>를 읽었어요.";',
+ announce='return "[예시 데이터 기준] 피드 한 번에 초파리는 <b>"+r.fly+"행</b>(게시글 "+r.p+" + 글태그 "+r.pt+" + 태그 "+r.pt+"), 주판봇은 문서 <b>"+r.robo+"개</b>를 읽었어요.";',
  verdict='return "이 서비스의 주된 조회(글과 태그를 함께 보기)에서는 문서형이 덜 읽는다. 주판봇 승. 단, 태그 이름 변경이나 태그별 통계가 주된 일이라면 결과는 달라진다.";'),
 summary='''<div class="tbl"><table><thead><tr><th>주제</th><th>한 줄</th></tr></thead><tbody>
 <tr><td>비정형 · 3V</td><td>양·속도·다양성 — 관계형만으로는 부담이 생기는 데이터</td></tr>
@@ -133,10 +133,9 @@ facts=[('F01','교안: 4세대 이후 데이터베이스 관리 시스템은 NoS
 refs=[dict(id='ahn2025w0104',type='report',title='데이터베이스 설계 1~4주차 강의 교안 (데이터베이스 관리시스템 발전 과정)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025rpg',type='report',title='RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},role='primary'),
       dict(id='ahn2025notion13',type='webpage',title='13주차 : 데이터 베이스 응용기술',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed8182bd55ffb2a052dbed',role='primary'),
-      dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='background',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인')],
+      dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='background',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준')],
 models=['SNS 게시글 6개와 해시태그 (설명용 예시 데이터)','문서 보기 화면 (MongoDB를 흉내 낸 설명용)','색인 비교 횟수 (log₂N + 1 단순화)','대결의 읽은 행 수 (예시 데이터로 계산)'],
 cover_alt='서류철이 꽂힌 책장 옆에 해시태그 스티커가 붙은 봉투 더미와 사진 상자가 놓이고, 캐릭터들이 무엇을 어디에 담을지 고르는 장면 (대체 그림)',
-cover_svg='<svg width="300" height="140" viewBox="0 0 300 140">'+''.join('<rect x="%d" y="30" width="16" height="80" fill="#e6eefb" stroke="#2b6cb0"/>'%(20+i*18) for i in range(5))+''.join('<rect x="%d" y="%d" width="60" height="38" rx="4" fill="#fdf3e1" stroke="#b7791f"/><text x="%d" y="%d" font-size="12" fill="#b7791f">#태그</text>'%(140+(i%2)*70,24+(i//2)*50,150+(i%2)*70,48+(i//2)*50) for i in range(4))+'</svg>',
 prereq=['13'],
 js=r'''
 var $=LAB.$,$$=LAB.$$;

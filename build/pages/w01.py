@@ -138,10 +138,9 @@ facts=[('F01','2025-2학기 평가 비율은 출석 10%, 중간 40%, 기말 40%,
 refs=[dict(id='ahn2025syllabus',type='webpage',title='데이터베이스설계 (2025년 2학기) 강의 개요',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'2025-2-1ab17a4520ed81cd9040dbae826a48ad',role='primary',supports=['lab:concept/database-design-overview']),
       dict(id='ahn2025cases',type='webpage',title='데이터베이스 설계사례 (업종별)',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2025]]},URL=NOTION+'1ab17a4520ed81cc9c8ad60616c2e1de',role='primary'),
       dict(id='ahn2026install',type='webpage',title='초보자도 쉽게 따라하는 DB 환경 설치',author=[{'family':'안상선','given':''}],issued={'date-parts':[[2026]]},URL='https://adminmrobo.github.io/how_to_start_db/',role='background'),
-      dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='background',verified={'title':True,'authors':True,'year':False},note='출판 연도 미확인')],
+      dict(id='kim3ed',type='book',title='데이터베이스 개론 (3판)',author=[{'family':'김연희','given':''}],publisher='한빛아카데미',role='background',verified={'title':True,'authors':True,'year':False},note='3판 출판 연도 미확인 — 4판(2026년 7월)이 나왔으나 강의는 3판 기준')],
 models=['편의점 상품·판매·재고 흐름 애니메이션 (설명용 모형)','“오늘 지나온 DB” 테이블·행 수 (추정 예시값)','복사본 3개 vs 한 곳 실험 (모의 시뮬레이션, 고정 시드)','SQL 실습실 결과 (브라우저 안 모의 실행)'],
 cover_alt='낮의 연구실 책상 위 커다란 표와 바코드 스캐너를 네 캐릭터가 둘러싼 표지 (대체 그림)',
-cover_svg='<svg width="260" height="150" viewBox="0 0 260 150"><rect x="10" y="10" width="240" height="120" rx="10" fill="#fff" stroke="#9aa5b1"/><g stroke="#d5dbe2">'+''.join('<line x1="10" y1="%d" x2="250" y2="%d"/>'%(10+24*i,10+24*i) for i in range(1,5))+''.join('<line x1="%d" y1="10" x2="%d" y2="130"/>'%(10+60*i,10+60*i) for i in range(1,4))+'</g><rect x="10" y="10" width="240" height="24" rx="8" fill="#e6eefb"/><g fill="#13733a">'+''.join('<rect x="%d" y="120" width="%d" height="22"/>'%(150+x*6,2 if x%2 else 3) for x in range(14))+'</g></svg>',
 prereq=[],
 js=r'''
 var $=LAB.$;

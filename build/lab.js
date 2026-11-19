@@ -115,6 +115,7 @@ function SQLLab(el,cfg){
   el.classList.add('sqllab');
   el.innerHTML='<div class="lt"></div><label class="sr" for="'+el.id+'-ta">SQL 입력</label><textarea id="'+el.id+'-ta" spellcheck="false"></textarea>'+
    '<div class="ctrl"><button type="button" class="bt primary run">실행 ▶</button><button type="button" class="bt reset">처음 상태로</button><span class="note" style="font-size:13px;color:#5b6874">Ctrl+Enter로도 실행 · 실제 MariaDB가 아닌 페이지 안 모의 실행</span></div>'+
+   '<details class="lab-limits" style="font-size:13px;color:#5b6874;margin:4px 0"><summary>이 실습실이 지원하지 않는 것</summary>MariaDB를 흉내 낸 작은 엔진입니다. <code>CREATE INDEX</code>·<code>EXPLAIN</code>(색인), 실제 권한 검사(<code>GRANT</code>·<code>REVOKE</code>는 메시지만), <code>CREATE USER</code>, 저장 프로시저·트리거는 지원하지 않고, <code>NOW()</code>는 고정된 시각을 돌려줍니다. 첫 오류에서 멈추는 것은 MariaDB 명령줄과 같습니다. 과제·시험 전에는 실제 MariaDB에서 한 번 더 실행하세요.</details>'+
    '<div class="tables"></div><div class="out" aria-live="polite"></div>';
   ta=$('textarea',el); out=$('.out',el); tabs=$('.tables',el);
   var lt=$('.lt',el);
