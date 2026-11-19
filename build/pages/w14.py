@@ -169,3 +169,70 @@ labs=('lab14:{setup:%s,presets:[{t:"① 표 3개 보기",q:"SELECT * FROM 게시
 )
 for s in PAGE['steps']:
     s['def'] = {'lv1':'칸이 정해지지 않은 데이터(비정형)와 양·속도·다양성(3V)이 큰 빅데이터. 관계형만으로는 부담이 생기는 데이터.','lv2':'관계형은 표와 외래키·JOIN으로, 문서형은 JSON 같은 문서 안에 관련 값을 함께 담아 표현하는 데이터 모델.','lv3':'특정 칸의 값을 정렬해 행의 위치를 가리키는 구조. 전체 스캔 대신 빠르게 찾게 해 준다.','lv4':'짧은 거래를 처리하는 운영용 OLTP와, 대량 데이터를 집계·분석하는 OLAP(데이터 웨어하우스).'}[s['id']]
+
+# ── 5칸: 사례 분석 + 문서 질의 실습 (2026-11 보강) ─────────────────
+PAGE['steps'][3]['limit'] = '네 가지 도구(관계형·문서형·색인·분석용 DB)를 봤습니다. 실제 서비스는 이것들을 어떻게 섞어 쓸까요? RPG 사례의 운영 설계를 분석하고, 전투 로그를 문서 질의로 직접 다뤄 봅니다.'
+PAGE['steps'][3]['limit_label'] = '실제 서비스에서 도구를 섞는 판단은 아직'
+PAGE['steps'].append(dict(id='lv5', short='사례·실습', title='사례 분석 · 실습 — 용사의 전설 운영 설계와 전투 로그 문서 질의', concept='운영 설계 사례 분석', en='operational design case analysis', cid='lab:concept/operational-design-case',
+ tag='사례: 서버 오픈 날 5만 명', analogy='창고와 매장 진열대',
+ situation='RPG 「용사의 전설」 사례 문서의 “성능 최적화 및 인덱싱 전략” 장에는 데이터 종류마다 다른 결정이 적혀 있습니다: 캐릭터–장비는 정규화, 전투 로그는 비정규화, 레벨 정보·아이템 속성은 메모리 캐싱, 월드/서버별 데이터는 샤딩, 전투 중 실시간 데이터는 NoSQL 병행 검토. 왜 데이터마다 답이 다를까요? 먼저 직접 골라 보고 사례와 비교하세요.',
+ pair=(('현장에서는','마트는 모든 물건을 같은 방식으로 두지 않습니다. 비싼 물건은 잠금 진열장(트랜잭션), 자주 팔리는 물건은 계산대 옆(캐시), 대량 재고는 창고를 지역별로 나눠(샤딩) 둡니다.'),
+       ('데이터베이스에서는','설계자는 데이터마다 <b>얼마나 자주 읽나 · 얼마나 자주 바뀌나 · 틀리면 얼마나 큰일인가</b>를 묻고 저장 방식을 고릅니다. 사례의 인덱스 우선순위 표는 “자주 검색되는 칸”에 색인을 먼저 건 결과입니다.')),
+ panel='''<div id="cs14"></div><div class="ctrl"><button type="button" class="bt primary" id="cs14c">사례와 비교</button></div><div class="insight" id="cs14o">데이터마다 저장 방식을 고른 뒤 「사례와 비교」를 누르세요.</div>''',
+ panel_title='직접 해 보기 — 데이터마다 저장 방식 고르기',
+ sim='운영 설계 결정 맞히기',
+ body='''<h3>사례의 숫자 읽기 — 인덱스 적용 우선순위 (사례 문서의 표)</h3>
+<div class="tbl"><table><thead><tr><th>테이블</th><th>색인 칸</th><th>사례가 적은 효과</th><th>읽는 법</th></tr></thead><tbody>
+<tr><td>Characters</td><td>player_id, level</td><td>캐릭터 검색 300% 향상</td><td rowspan="3">“향상”의 기준(응답 시간인지 처리량인지)과 측정 조건이 적혀 있지 않습니다. 사례의 숫자는 <b>방향</b>을 보여 줄 뿐, 다른 서비스에 그대로 옮길 수 있는 값이 아닙니다.</td></tr>
+<tr><td>Items</td><td>type, rarity</td><td>아이템 필터링 250% 향상</td></tr>
+<tr><td>Quest_Progress</td><td>character_id, status</td><td>퀘스트 로딩 500% 향상</td></tr></tbody></table></div>
+<p>장애 사례: “신규 서버 오픈 당일, 동시접속자 5만명 상황에서 인벤토리 조회 쿼리 지연으로 전체 서비스 마비 → 인덱스 추가 및 조회 로직 개선으로 응답시간 3초 → 0.1초”. 3초 → 0.1초는 <b>30배</b> 빨라진 것입니다(3 ÷ 0.1). 색인만의 효과인지, 조회 로직 개선의 효과인지는 사례에서 나뉘지 않습니다.</p>
+<h3>실습 — 전투 로그를 문서로 다루기 (MongoDB 방식 질의)</h3>
+<p>전투 로그는 전투마다 모양이 다릅니다(드롭 아이템이 없기도, 여럿이기도, 스킬 기록이 있기도). 아래는 MongoDB의 <code>find</code>·<code>aggregate</code> 문법 일부를 흉내 낸 실습 창입니다. 예제 버튼을 누르고, 직접 고쳐 실행해 보세요.</p>
+<div class="ctrl" id="mg14p"></div><textarea class="dq" id="mg14q" spellcheck="false" style="width:100%;min-height:90px;font:13px/1.5 ui-monospace,Consolas,monospace;border:1px solid #d5dbe2;border-radius:8px;padding:8px"></textarea>
+<div class="ctrl"><button type="button" class="bt primary" id="mg14r">실행 ▶</button><span class="cvcap">지원: find(조건, 투영) · countDocuments · aggregate($match · $unwind · $group($sum · $avg · $max) · $sort · $limit) · 조건 $gt $gte $lt $lte $ne $in</span></div>
+<pre id="mg14o" style="font-size:13px;background:#f7f9fb;border:1px solid #d5dbe2;border-radius:8px;padding:10px;max-height:300px;overflow:auto"></pre>
+<p class="cvcap">전투 로그 12건은 설명용 예시 데이터입니다. 실제 MongoDB는 노션 13주차 링크의 공식 사이트에서 무료 클라우드(Atlas)로 같은 질의를 해 볼 수 있습니다.</p>''',
+ explain='<p><b>같은 질문, 두 가지 답:</b> “드롭 아이템별 횟수”를 관계형으로 하면 전투 표와 드롭 표(1:N)를 JOIN하고 GROUP BY 합니다. 문서형은 <code>$unwind</code>로 배열을 펼친 뒤 <code>$group</code>합니다 — 펼치기가 JOIN 역할을 합니다. 반대로 “레온의 골드를 깎고 미라에게 주기”처럼 여러 문서를 함께 바꾸는 일은 관계형 트랜잭션(13주)이 자연스럽습니다. 사례가 “전투 로그는 비정규화·NoSQL 검토, 캐릭터–장비는 정규화”로 나눈 이유가 여기 있습니다.</p>',
+ aicheck='<p>AI가 “성능 300% 향상” 같은 숫자를 근거로 설계를 권하면 세 가지를 물어보세요: <b>무엇을 쟀나(응답 시간·처리량)?</b> <b>어떤 조건(데이터 양·동시 접속)에서?</b> <b>무엇과 비교했나?</b> — 이 세 가지가 없는 숫자는 사례의 방향일 뿐 근거가 아닙니다.</p>',
+ limit='다음 주는 기말 리뷰입니다. 9~14주의 SQL·설계·정규화·트랜잭션·응용을 한 번에 다시 엮습니다.', limit_label='후반부 전체를 엮어 보는 정리는 아직',
+ say=('asst','report','3초에서 0.1초면 30배예요! 그런데 색인 덕인지 로직 덕인지는 사례에 안 나뉘어 있네요.'),
+ quiz=[dict(q='RPG 사례에서 전투 로그를 비정규화하고 NoSQL 병행을 검토한 가장 알맞은 이유는?',o=['돈이 오가므로 트랜잭션이 중요해서','쓰기가 매우 많고 모양이 전투마다 달라, 조인 없이 통째로 쓰고 읽는 편이 유리해서','정규화가 불가능해서','색인을 걸 수 없어서'],a=1,why='전투 로그는 쓰기가 많고 형태가 다양하며, 한 전투를 통째로 읽는 일이 많습니다. 돈·장비처럼 일관성이 핵심인 데이터는 정규화·트랜잭션 쪽에 둡니다.'),
+       dict(q='MongoDB 질의 db.전투로그.aggregate([{ $unwind: "$드롭" }, { $group: { _id: "$드롭", n: { $sum: 1 } } }])가 하는 일과 가장 가까운 SQL은?',o=['SELECT 드롭 FROM 전투로그;','전투–드롭 표를 JOIN한 뒤 GROUP BY 드롭, COUNT(*)','DELETE FROM 드롭;','CREATE INDEX ON 드롭;'],a=1,why='$unwind는 배열을 행으로 펼치고(JOIN과 비슷한 효과), $group은 GROUP BY와 같습니다.')],
+ **{'def': '실제 서비스 사례에서 데이터 종류별로 정규화·비정규화·색인·캐싱·샤딩·NoSQL을 고른 이유를 분석하고, 문서형 질의로 같은 질문을 풀어 보는 실습.'}))
+PAGE['facts'].append(('F06', 'RPG 사례 인덱스 우선순위: Characters(player_id, level) 캐릭터 검색 300% 향상, Items(type, rarity) 250%, Quest_Progress(character_id, status) 500% (사례 기록, 측정 조건 미기재)', '사례 기록', 'ahn2025rpg', 'lv5', '「성능 최적화 및 인덱싱 전략」'))
+PAGE['facts'].append(('F07', 'RPG 사례: 캐릭터-장비 관계는 정규화, 전투 로그는 비정규화, 레벨·아이템 속성은 메모리 캐싱, 월드/서버별 샤딩', '사례 기록', 'ahn2025rpg', 'lv5', '「성능 최적화 핵심 전략」'))
+PAGE['gloss']['샤딩'] = ('샤딩', '용어', '데이터를 기준(월드·지역 등)에 따라 여러 서버로 나눠 저장하는 방법.', 'sharding', 'lv5')
+PAGE['gloss']['캐싱'] = ('캐싱', '용어', '자주 읽는 데이터를 메모리에 복사해 두고 데이터베이스까지 가지 않고 돌려주는 방법.', 'caching', 'lv5')
+PAGE['js'] += r'''
+var CS=[['캐릭터–장비 (누가 어떤 장비를 차고 있나)','정규화 + 트랜잭션','장비 교환은 돈·아이템이 오가는 일 — 사례: “캐릭터-장비 관계는 정규화”'],
+ ['전투 로그 (초당 수천 건, 전투마다 모양이 다름)','비정규화 · NoSQL 검토','쓰기 폭주 + 다양한 모양 — 사례: “전투 로그는 비정규화”, “전투 중 실시간 데이터는 NoSQL 병행 검토”'],
+ ['레벨별 필요 경험치 표 (거의 안 바뀜, 매우 자주 읽음)','메모리 캐싱','읽기만 많고 거의 안 바뀜 — 사례: “레벨 정보, 아이템 속성 등 자주 조회되는 데이터는 메모리 캐싱”'],
+ ['월드(서버)별 캐릭터 데이터 (동시 접속 5만 명)','샤딩','한 서버로 감당하기 어려운 양을 월드별로 나눔 — 사례: “월드/서버별 데이터 분리로 대규모 동시접속 처리”'],
+ ['인벤토리 조회 (오픈 날 지연으로 서비스 마비)','색인','자주 검색되는 칸에 색인 — 사례: 색인 추가와 조회 로직 개선으로 3초 → 0.1초']];
+var OPT=['정규화 + 트랜잭션','비정규화 · NoSQL 검토','메모리 캐싱','샤딩','색인'],cp={};
+LAB.$('#cs14').innerHTML=CS.map(function(c,i){return '<div class="ctrl" style="margin:4px 0"><b style="min-width:240px;display:inline-block">'+c[0]+'</b><select data-i="'+i+'"><option value="">— 고르기 —</option>'+OPT.map(function(o){return '<option>'+o+'</option>';}).join('')+'</select></div>';}).join('');
+LAB.$$('#cs14 select').forEach(function(s){s.onchange=function(){cp[s.dataset.i]=s.value;};});
+LAB.$('#cs14c').onclick=function(){var ok=0;LAB.$('#cs14o').innerHTML=CS.map(function(c,i){var g=cp[i]===c[1];if(g)ok++;return (g?'<span style="color:#13733a">✓</span> ':'<span style="color:#c9302c">✗</span> ')+'<b>'+c[1]+'</b> — '+c[2];}).join('<br>')+'<br><b>'+ok+'/5</b> — 같은 서비스 안에서도 데이터마다 답이 다릅니다.';};
+var LOGS=[{"전투번호":1,"캐릭터":"레온","몬스터":"슬라임","피해":120,"드롭":["슬라임 젤리"],"초":14},{"전투번호":2,"캐릭터":"미라","몬스터":"고블린","피해":340,"드롭":["녹슨 단검","동전 주머니"],"초":31,"스킬":["화염구"]},{"전투번호":3,"캐릭터":"레온","몬스터":"고블린","피해":290,"드롭":[],"초":27},{"전투번호":4,"캐릭터":"보리","몬스터":"슬라임","피해":80,"드롭":["슬라임 젤리"],"초":12},{"전투번호":5,"캐릭터":"미라","몬스터":"늑대","피해":510,"드롭":["늑대 가죽"],"초":44,"스킬":["화염구","얼음벽"]},{"전투번호":6,"캐릭터":"레온","몬스터":"늑대","피해":470,"드롭":["늑대 가죽","늑대 이빨"],"초":40},{"전투번호":7,"캐릭터":"레온","몬스터":"드래곤","피해":2600,"드롭":["전설의 검"],"초":180,"파티":["미라","보리"]},{"전투번호":8,"캐릭터":"보리","몬스터":"고블린","피해":260,"드롭":["동전 주머니"],"초":35},{"전투번호":9,"캐릭터":"미라","몬스터":"슬라임","피해":95,"드롭":["슬라임 젤리","슬라임 젤리"],"초":10},{"전투번호":10,"캐릭터":"레온","몬스터":"슬라임","피해":110,"드롭":[],"초":13},{"전투번호":11,"캐릭터":"보리","몬스터":"늑대","피해":430,"드롭":["늑대 이빨"],"초":52},{"전투번호":12,"캐릭터":"미라","몬스터":"드래곤","피해":2400,"드롭":["용의 비늘"],"초":200,"스킬":["얼음벽"],"파티":["레온"]}];
+var MP=[['① 레온의 전투','db.전투로그.find({ "캐릭터": "레온" }, { "몬스터": 1, "피해": 1 })'],['② 피해 400 이상','db.전투로그.find({ "피해": { "$gte": 400 } })'],['③ 스킬을 쓴 전투 수','db.전투로그.countDocuments({ "스킬": { "$ne": null } })'],['④ 드롭 아이템별 횟수','db.전투로그.aggregate([\n  { "$unwind": "$드롭" },\n  { "$group": { "_id": "$드롭", "n": { "$sum": 1 } } },\n  { "$sort": { "n": -1 } }\n])'],['⑤ 캐릭터별 평균 피해','db.전투로그.aggregate([\n  { "$group": { "_id": "$캐릭터", "평균피해": { "$avg": "$피해" }, "전투": { "$sum": 1 } } },\n  { "$sort": { "평균피해": -1 } }\n])'],['⑥ 드래곤 전투의 파티원','db.전투로그.find({ "몬스터": { "$in": ["드래곤"] } }, { "캐릭터": 1, "파티": 1 })']];
+var mp=LAB.$('#mg14p');MP.forEach(function(m){var b=document.createElement('button');b.type='button';b.className='bt';b.textContent=m[0];b.onclick=function(){LAB.$('#mg14q').value=m[1];mrun();};mp.appendChild(b);});
+function J(s){return JSON.parse(s.replace(/([{,]\s*)([$\w가-힣]+)\s*:/g,'$1"$2":').replace(/'/g,'"'));}
+function get(d,k){return k.charAt(0)==='$'?d[k.slice(1)]:k;}
+function match(d,f){return Object.keys(f||{}).every(function(k){var c=f[k],v=d[k];
+ if(c&&typeof c==='object'&&!Array.isArray(c))return Object.keys(c).every(function(op){var x=c[op];switch(op){case '$gt':return v>x;case '$gte':return v>=x;case '$lt':return v<x;case '$lte':return v<=x;case '$ne':return x===null?(v!==undefined&&v!==null):v!==x;case '$in':return x.some(function(y){return Array.isArray(v)?v.indexOf(y)>=0:v===y;});default:throw new Error('지원하지 않는 연산자 '+op);}});
+ return Array.isArray(v)?v.indexOf(c)>=0:v===c;});}
+function proj(d,p){if(!p||!Object.keys(p).length)return d;var o={};Object.keys(p).forEach(function(k){if(p[k]&&d[k]!==undefined)o[k]=d[k];});return o;}
+function agg(st){var a=LOGS.slice();st.forEach(function(s){var op=Object.keys(s)[0],x=s[op];
+ if(op==='$match')a=a.filter(function(d){return match(d,x);});
+ else if(op==='$unwind'){var f=x.slice(1),b=[];a.forEach(function(d){(d[f]||[]).forEach(function(v){var c=JSON.parse(JSON.stringify(d));c[f]=v;b.push(c);});});a=b;}
+ else if(op==='$group'){var g={},order=[];a.forEach(function(d){var key=JSON.stringify(get(d,x._id));if(!g[key]){g[key]={_id:get(d,x._id),_c:{}};order.push(key);}var r=g[key];
+  Object.keys(x).forEach(function(k){if(k==='_id')return;var e=x[k],fn=Object.keys(e)[0],arg=e[fn],val=typeof arg==='string'?get(d,arg):arg;r._c[k]=r._c[k]||{s:0,n:0,m:-Infinity};r._c[k].s+=val;r._c[k].n++;r._c[k].m=Math.max(r._c[k].m,val);r._c[k].fn=fn;});});
+  a=order.map(function(key){var r=g[key],o={_id:r._id};Object.keys(r._c).forEach(function(k){var c=r._c[k];o[k]=c.fn==='$sum'?c.s:c.fn==='$avg'?Math.round(c.s/c.n*10)/10:c.m;});return o;});}
+ else if(op==='$sort'){var ks=Object.keys(x);a.sort(function(p,q){for(var i=0;i<ks.length;i++){var k=ks[i];if(p[k]!==q[k])return (p[k]<q[k]?-1:1)*x[k];}return 0;});}
+ else if(op==='$limit')a=a.slice(0,x);else throw new Error('지원하지 않는 단계 '+op);});return a;}
+function mrun(){var q=LAB.$('#mg14q').value.trim(),o=LAB.$('#mg14o');try{var m=q.match(/^db\.전투로그\.(find|countDocuments|aggregate)\(([\s\S]*)\)\s*;?$/);if(!m)throw new Error('db.전투로그.find(...) / countDocuments(...) / aggregate([...]) 형식으로 써 주세요.');
+ var r;if(m[1]==='aggregate'){r=agg(J(m[2]));}else{var args=J('['+(m[2]||'')+']');var hit=LOGS.filter(function(d){return match(d,args[0]);});r=m[1]==='countDocuments'?hit.length:hit.map(function(d){return proj(d,args[1]);});}
+ o.textContent=(typeof r==='number'?r:(r.length+'건\n'+r.map(function(d){return JSON.stringify(d);}).join('\n')));}catch(e){o.textContent='오류: '+e.message;}}
+LAB.$('#mg14r').onclick=mrun;mp.children[3].click();
+'''

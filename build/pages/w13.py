@@ -156,3 +156,79 @@ labs=('lab13:{setup:%s,presets:[{t:"① 노션 #4-1 COMMIT",q:"START TRANSACTION
 )
 for s in PAGE['steps']:
     s['def'] = {'lv1':'하나의 논리적 작업 단위. 원자성·일관성·격리성·지속성(ACID)을 가져야 한다.','lv2':'트랜잭션을 확정(COMMIT)하거나 취소(ROLLBACK)하는 SQL 명령, 그리고 권한을 다루는 GRANT·REVOKE(DCL).','lv3':'로그에 남긴 변경 전·후 값으로, 장애 후 커밋된 트랜잭션은 REDO, 미완료 트랜잭션은 UNDO하는 회복 방법.','lv4':'동시에 실행되는 트랜잭션이 서로 간섭하지 않도록 잠금(로킹)으로 순서를 제어하는 기법. 2단계 로킹 규약.'}[s['id']]
+
+# ── 5칸: 실제 실습 + 사례 분석 (2026-11 보강) ─────────────────
+PAGE['steps'][3]['limit'] = '원리는 손에 익었습니다. 이제 실제 게임 거래 사례를 두 개의 창(세션)으로 재현하고, 진짜 MariaDB에서도 해 봅니다.'
+PAGE['steps'][3]['limit_label'] = '실제 두 세션에서 재현해 보지 않음'
+PAGE['steps'].append(dict(id='lv5', short='거래 실습', title='실습 · 사례 분석 — RPG 거래소를 두 세션으로 재현하기', concept='트랜잭션 실습과 사례 분석', en='transaction lab and case analysis', cid='lab:concept/transaction-lab-case',
+ tag='사례: 용사의 전설 거래소', analogy='계산대 두 개, 물건은 하나',
+ situation='RPG 「용사의 전설」 사례 문서에는 “트랜잭션: 거래/교환 시 데이터 일관성 유지”, “퀘스트 완료 시 보상 지급과 상태 업데이트를 단일 트랜잭션으로 처리”라는 설계 결정이 있습니다. 거래소에 하나뿐인 <b>전설의 검(매물 7번, 1,000골드)</b>을 레온과 미라가 거의 동시에 사려 합니다. 두 사람의 접속을 <b>세션 A·B</b>로 나눠 한 줄씩 실행해 보세요.',
+ pair=(('현장에서는','계산대 두 곳에서 마지막 한 개 남은 물건을 동시에 팔면, 둘 다 “재고 있음”을 보고 계산해 버립니다. 한 직원이 물건을 손에 쥐고(잠금) 계산을 끝낼 때까지 다른 직원은 기다려야 합니다.'),
+       ('MariaDB에서는','두 접속(세션)이 각자 <code>START TRANSACTION</code>을 엽니다. 읽고 나서 고칠 행은 <code>SELECT … FOR UPDATE</code>로 미리 잠급니다. 다른 세션은 그 행을 고치거나 잠그려 하면 기다리고, 서로 기다리면 InnoDB가 한쪽을 <b>ERROR 1213 (Deadlock)</b>으로 철회합니다.')),
+ panel='''<div class="ctrl" id="ts13s"></div><div class="ctrl"><button type="button" class="bt primary" id="ts13n">다음 줄 실행 ▶</button><button type="button" class="bt" id="ts13r">처음으로</button><span id="ts13p" class="cvcap"></span></div>
+<div class="two"><div><p class="ptitle" style="color:#1e55c8">세션 A (레온)</p><div id="ts13a" style="font-size:13px;min-height:120px"></div></div><div><p class="ptitle" style="color:#c42a6e">세션 B (미라)</p><div id="ts13b" style="font-size:13px;min-height:120px"></div></div></div>
+<div class="two"><div id="ts13d"></div><div id="ts13l"></div></div><div class="insight" id="ts13o"></div>''',
+ panel_title='두 세션 재현기 — 시나리오를 고르고 한 줄씩',
+ sim='두 세션 거래 재현기',
+ body='''<h3>진짜 MariaDB에서 해 보기 (두 창 실습)</h3>
+<ol><li>HeidiSQL에서 같은 서버에 <b>쿼리 탭을 두 개</b> 열거나, 명령 프롬프트 두 개에서 <code>mariadb -u root -p</code>로 접속합니다(설치는 1주차 안내). 두 창 모두 <code>SET autocommit = 0;</code></li>
+<li>한쪽 창에서 준비 SQL을 실행합니다.<pre style="font-size:13px;background:#f7f9fb;border:1px solid #d5dbe2;border-radius:8px;padding:8px;overflow-x:auto">CREATE DATABASE rpg; USE rpg;
+CREATE TABLE 캐릭터 (이름 VARCHAR(10) PRIMARY KEY, 골드 INT CHECK (골드 &gt;= 0)) ENGINE=InnoDB;
+CREATE TABLE 매물 (매물번호 INT PRIMARY KEY, 아이템 VARCHAR(20), 가격 INT, 판매자 VARCHAR(10), 상태 VARCHAR(10)) ENGINE=InnoDB;
+INSERT INTO 캐릭터 VALUES ('레온', 5000), ('미라', 3000), ('보리', 0);
+INSERT INTO 매물 VALUES (7, '전설의 검', 1000, '보리', '판매중');
+COMMIT;</pre></li>
+<li>두 창 모두 <code>USE rpg; START TRANSACTION;</code> → A 창: <code>SELECT 상태 FROM 매물 WHERE 매물번호 = 7 FOR UPDATE;</code> → B 창: 같은 문장. <b>B 창이 멈춰 있는지</b> 확인합니다.</li>
+<li>A 창: <code>UPDATE 매물 SET 상태='판매완료' WHERE 매물번호=7; UPDATE 캐릭터 SET 골드=골드-1000 WHERE 이름='레온'; UPDATE 캐릭터 SET 골드=골드+1000 WHERE 이름='보리'; COMMIT;</code> → B 창의 SELECT가 풀리며 <b>‘판매완료’</b>를 돌려주는지 봅니다. B는 <code>ROLLBACK;</code></li>
+<li>교착 실험: A는 <code>UPDATE 캐릭터 … WHERE 이름='레온'</code> 다음 <code>… '미라'</code>, B는 반대 순서로 실행합니다. 한쪽에 <code>ERROR 1213 (40001): Deadlock found</code>가 나오면 성공입니다. 마지막에 <code>SHOW ENGINE INNODB STATUS;</code>의 LATEST DETECTED DEADLOCK 부분을 읽어 보세요.</li></ol>
+<p class="cvcap">기다림이 너무 길면 <code>innodb_lock_wait_timeout</code>(기본 50초) 뒤에 ERROR 1205가 납니다. 실습 결과(시각·오류 번호)를 과제 메모에 적어 두세요.</p>
+<h3>사례 분석 — 사례 문서의 문장을 오늘 개념으로 번역하기</h3>
+<div class="tbl"><table><thead><tr><th>사례 문서의 문장</th><th>오늘 개념</th><th>설계 결정으로 바꾸면</th></tr></thead><tbody>
+<tr><td>트랜잭션: 거래/교환 시 데이터 일관성 유지</td><td>원자성 · 격리성</td><td>골드 차감·지급·아이템 이동·매물 상태를 한 트랜잭션으로, 매물 행은 FOR UPDATE로 잠금</td></tr>
+<tr><td>퀘스트 완료 시 보상 지급과 상태 업데이트를 단일 트랜잭션으로 처리</td><td>원자성</td><td>보상만 들어가고 퀘스트가 미완료로 남는 반쪽 상태 금지 — 실패 시 ROLLBACK</td></tr>
+<tr><td>레벨업 시 스탯 계산 트랜잭션 필요</td><td>일관성</td><td>레벨·경험치·능력치를 함께 갱신, CHECK로 음수 방지</td></tr>
+<tr><td>시스템 복구 — 서버 장애 발생 시 데이터 롤백 가능</td><td>회복 (로그, UNDO)</td><td>로그 보관·검사 시점, 장애 훈련</td></tr>
+<tr><td>DB 장애 시 전체 게임 서비스 중단 가능성 / 백업 및 복구 프로세스 구축</td><td>지속성 · 회복의 한계</td><td>정기 백업 + 복제 서버, 복구 시간 목표 정하기</td></tr></tbody></table></div>
+<div class="sqllab" id="lab13b" data-lab="lab13b"></div>''',
+ explain='<p><b>세 시나리오에서 배우는 것:</b> ① 잠금 없음 — 둘 다 “판매중”을 읽고 사서 <b>검이 두 자루</b>가 되고 판매자는 2,000골드를 받습니다(아이템 복사). ② FOR UPDATE — B가 기다렸다가 “판매완료”를 읽고 포기합니다. ③ 반대 순서로 잠그면 교착 — 한쪽이 1213으로 철회됩니다. 해결책은 <b>항상 같은 순서로 잠그기</b>(예: 이름 가나다순, 계좌 번호 순)입니다. 아래 실습실은 같은 거래를 한 세션에서 트랜잭션으로 묶는 연습입니다.</p>',
+ aicheck='<p>AI가 만든 거래 코드에서 <code>SELECT 상태 …</code>로 확인한 뒤 프로그램에서 판단하고 <code>UPDATE</code>하는 구조라면, 확인과 수정 사이에 다른 세션이 끼어들 수 있습니다. “확인하는 SELECT에 FOR UPDATE가 있는가?”, “두 행 이상을 잠글 때 순서가 정해져 있는가?” 두 가지를 물어보세요.</p>',
+ limit='지금까지는 관계형 DBMS 한 대 안의 이야기였습니다. 사진·영상·SNS 글처럼 표에 잘 안 맞는 데이터, 여러 서버에 퍼진 데이터는? 데이터베이스 응용 기술 — 14주차.', limit_label='관계형으로 다루기 어려운 데이터·분산 환경은 아직',
+ say=('fly','point','검이 두 자루가 되는 건 버그가 아니라 설계 누락이야. FOR UPDATE 한 단어면 막혀.'),
+ quiz=[dict(q='두 세션이 같은 매물을 동시에 사는 것을 막으려면, 상태를 확인하는 SELECT에 무엇을 붙이나?',o=['ORDER BY','FOR UPDATE','LIMIT 1','DISTINCT'],a=1,why='SELECT … FOR UPDATE는 읽은 행에 쓰기 잠금을 걸어, 다른 세션이 그 행을 잠그거나 고치려면 기다리게 합니다.'),
+       dict(q='세션 A는 레온→미라, 세션 B는 미라→레온 순서로 행을 잠그다 서로 기다렸다. 가장 근본적인 예방책은?',o=['잠금을 쓰지 않는다','모든 세션이 같은 순서(예: 이름순)로 잠근다','COMMIT을 두 번 한다','CHECK 제약을 추가한다'],a=1,why='교착 상태는 서로 반대 순서로 잠글 때 생깁니다. 잠금 순서를 하나로 정하면 순환 대기가 생기지 않습니다.')],
+ **{'def': '두 세션에서 트랜잭션·잠금·교착을 직접 재현하고, 사례 문서의 설계 결정을 ACID와 회복·병행 제어 개념으로 해석하는 실습.'}))
+PAGE['gloss']['FOR UPDATE'] = ('SELECT … FOR UPDATE', '용어', '읽은 행에 쓰기 잠금을 걸어 트랜잭션이 끝날 때까지 다른 세션이 고치지 못하게 하는 문장.', 'select-for-update', 'lv5')
+PAGE['facts'].append(('F05', 'RPG 사례: 거래/교환 시 트랜잭션으로 데이터 일관성 유지, 퀘스트 완료 시 보상 지급과 상태 업데이트를 단일 트랜잭션으로 처리', '사례 기록', 'ahn2025rpg', 'lv5', '「아이템 시스템」·「퀘스트 시스템」'))
+PAGE['js'] += r'''
+var TS={none:{t:'① 잠금 없음 — 같은 검을 동시에',steps:[
+ ['A','START TRANSACTION;','',{}],['B','START TRANSACTION;','',{}],
+ ['A',"SELECT 상태 FROM 매물 WHERE 매물번호 = 7;",'→ 판매중',{}],['B',"SELECT 상태 FROM 매물 WHERE 매물번호 = 7;",'→ 판매중 (A가 아직 안 바꿈)',{}],
+ ['A',"UPDATE 캐릭터 SET 골드 = 골드 - 1000 WHERE 이름 = '레온';\nUPDATE 캐릭터 SET 골드 = 골드 + 1000 WHERE 이름 = '보리';\nINSERT INTO 인벤토리 VALUES ('레온', '전설의 검');\nUPDATE 매물 SET 상태 = '판매완료' WHERE 매물번호 = 7;",'',{leon:4000,bori:1000,inv:['레온'],st:'판매완료(미확정)'}],
+ ['B',"UPDATE 캐릭터 SET 골드 = 골드 - 1000 WHERE 이름 = '미라';\nUPDATE 캐릭터 SET 골드 = 골드 + 1000 WHERE 이름 = '보리';\nINSERT INTO 인벤토리 VALUES ('미라', '전설의 검');\nUPDATE 매물 SET 상태 = '판매완료' WHERE 매물번호 = 7;",'(설명을 위해 행 잠금이 없는 엔진을 가정)',{mira:2000,bori:2000,inv:['레온','미라']}],
+ ['A','COMMIT;','',{st:'판매완료'}],['B','COMMIT;','',{}]],end:'<b style="color:#c9302c">검이 두 자루, 판매자 보리는 2,000골드.</b> 하나뿐인 매물이 두 번 팔렸습니다(아이템 복사). 실제 InnoDB는 UPDATE에 행 잠금을 걸지만, 확인(SELECT)과 수정 사이에 끼어드는 문제는 그대로 남습니다 — 그래서 ②가 필요합니다.'},
+ lock:{t:'② SELECT … FOR UPDATE',steps:[
+ ['A','START TRANSACTION;','',{}],['B','START TRANSACTION;','',{}],
+ ['A',"SELECT 상태 FROM 매물 WHERE 매물번호 = 7 FOR UPDATE;",'→ 판매중 · 매물 7 잠금(A)',{lock:'매물 7 ← A'}],
+ ['B',"SELECT 상태 FROM 매물 WHERE 매물번호 = 7 FOR UPDATE;",'⏳ 대기 — A의 잠금',{wait:'B가 매물 7을 기다림'}],
+ ['A',"UPDATE 캐릭터 SET 골드 = 골드 - 1000 WHERE 이름 = '레온';\nUPDATE 캐릭터 SET 골드 = 골드 + 1000 WHERE 이름 = '보리';\nINSERT INTO 인벤토리 VALUES ('레온', '전설의 검');\nUPDATE 매물 SET 상태 = '판매완료' WHERE 매물번호 = 7;",'',{leon:4000,bori:1000,inv:['레온'],st:'판매완료(미확정)'}],
+ ['A','COMMIT;','잠금 해제',{st:'판매완료',lock:'매물 7 ← B',wait:''}],
+ ['B','(대기하던 SELECT가 풀림)','→ 판매완료',{}],['B','ROLLBACK;','구매 포기 — 아무것도 바뀌지 않음',{lock:''}]],end:'<b style="color:#13733a">검은 한 자루, 골드 총량 그대로.</b> B는 기다린 대가로 정확한 상태를 읽었습니다.'},
+ dead:{t:'③ 맞교환 — 반대 순서로 잠그면',steps:[
+ ['A','START TRANSACTION;','레온이 미라에게 500골드 보내고 물약을 받는 교환',{}],['B','START TRANSACTION;','미라가 레온에게 물약을 보내고 500골드를 받는 같은 교환',{}],
+ ['A',"UPDATE 캐릭터 SET 골드 = 골드 - 500 WHERE 이름 = '레온';",'레온 행 잠금(A)',{leon:4500,lock:'레온 ← A'}],
+ ['B',"UPDATE 캐릭터 SET 골드 = 골드 + 500 WHERE 이름 = '미라';",'미라 행 잠금(B)',{mira:3500,lock:'레온 ← A, 미라 ← B'}],
+ ['A',"UPDATE 캐릭터 SET 골드 = 골드 + 500 WHERE 이름 = '미라';",'⏳ 대기 — 미라 행은 B가 잠금',{wait:'A가 미라를 기다림'}],
+ ['B',"UPDATE 캐릭터 SET 골드 = 골드 - 500 WHERE 이름 = '레온';",'ERROR 1213 (40001): Deadlock found — B 철회',{mira:3000,lock:'레온 ← A, 미라 ← A',wait:''}],
+ ['A','(대기가 풀려 실행됨) COMMIT;','',{mira:3500,lock:''}]],end:'<b style="color:#a35c00">교착 → B만 철회.</b> 응용 프로그램은 1213을 받으면 다시 시도해야 합니다. 두 세션이 모두 “이름 가나다순”(레온 → 미라)으로 잠갔다면 B는 처음부터 A를 기다렸을 뿐 교착은 생기지 않습니다.'}};
+var sc='none',k=0;
+var tsc=LAB.$('#ts13s');Object.keys(TS).forEach(function(key){var b=document.createElement('button');b.type='button';b.className='bt';b.textContent=TS[key].t;b.onclick=function(){sc=key;k=0;[].forEach.call(tsc.children,function(x){x.setAttribute('aria-pressed',x===b);});tsr();};tsc.appendChild(b);});
+function tsr(){var S=TS[sc].steps,st={leon:5000,mira:3000,bori:0,inv:[],st:'판매중',lock:'',wait:''},la=[],lb=[];
+ for(var i=0;i<k;i++){var s=S[i];for(var key in s[3])st[key]=s[3][key];var line='<div style="margin:3px 0"><code style="white-space:pre-wrap">'+LAB.esc(s[1])+'</code>'+(s[2]?'<br><small style="color:'+(/ERROR|대기/.test(s[2])?'#c9302c':'#5b6874')+'">'+s[2]+'</small>':'')+'</div>';
+  (s[0]==='A'?la:lb).push('<b>'+(i+1)+'.</b> '+line);(s[0]==='A'?lb:la).push('<div style="height:4px"></div>');}
+ LAB.$('#ts13a').innerHTML=la.join('');LAB.$('#ts13b').innerHTML=lb.join('');
+ LAB.$('#ts13d').innerHTML=LAB.tableHTML(['캐릭터','골드'],[['레온',st.leon.toLocaleString()],['미라',st.mira.toLocaleString()],['보리(판매자)',st.bori.toLocaleString()]],{cap:'캐릭터 표'})+LAB.tableHTML(['매물 7','상태','검을 가진 사람'],[['전설의 검',st.st,st.inv.join(', ')||'—']],{cap:'매물 · 인벤토리'});
+ LAB.$('#ts13l').innerHTML=LAB.tableHTML(['잠금 표',''],[['잠긴 행',st.lock||'없음'],['기다리는 세션',st.wait||'없음']],{cap:'InnoDB 행 잠금 (설명용)'});
+ LAB.$('#ts13p').textContent=k+'/'+S.length;LAB.$('#ts13o').innerHTML=k>=S.length?TS[sc].end:'다음 줄을 실행하세요. 어느 세션 차례인지 번호를 보세요.';}
+LAB.$('#ts13n').onclick=function(){if(k<TS[sc].steps.length)k++;tsr();};LAB.$('#ts13r').onclick=function(){k=0;tsr();};tsc.children[0].click();
+'''
+PAGE['labs'] += ',lab13b:{setup:"CREATE DATABASE rpg; USE rpg; CREATE TABLE 캐릭터 (이름 VARCHAR(10) PRIMARY KEY, 골드 INT CHECK (골드 >= 0)); CREATE TABLE 매물 (매물번호 INT PRIMARY KEY, 아이템 VARCHAR(20), 가격 INT, 판매자 VARCHAR(10), 상태 VARCHAR(10)); CREATE TABLE 인벤토리 (이름 VARCHAR(10), 아이템 VARCHAR(20), FOREIGN KEY (이름) REFERENCES 캐릭터(이름)); CREATE TABLE 퀘스트진행 (이름 VARCHAR(10), 퀘스트 VARCHAR(20), 상태 VARCHAR(10)); INSERT INTO 캐릭터 VALUES (\'레온\',5000),(\'미라\',300),(\'보리\',0); INSERT INTO 매물 VALUES (7,\'전설의 검\',1000,\'보리\',\'판매중\'),(8,\'용의 방패\',800,\'보리\',\'판매중\'); INSERT INTO 퀘스트진행 VALUES (\'레온\',\'슬라임 사냥\',\'진행중\');",presets:[{t:"① 정상 거래 (레온이 검 구매)",q:"START TRANSACTION;\\nUPDATE 캐릭터 SET 골드 = 골드 - 1000 WHERE 이름 = \'레온\';\\nUPDATE 캐릭터 SET 골드 = 골드 + 1000 WHERE 이름 = \'보리\';\\nINSERT INTO 인벤토리 VALUES (\'레온\', \'전설의 검\');\\nUPDATE 매물 SET 상태 = \'판매완료\' WHERE 매물번호 = 7;\\nCOMMIT;\\nSELECT * FROM 캐릭터;"},{t:"② 잔액 부족 (미라가 방패 구매)",q:"-- 미라는 300골드뿐. 두 번째 문장에서 CHECK(골드 >= 0) 위반\\nSTART TRANSACTION;\\nUPDATE 캐릭터 SET 골드 = 골드 + 800 WHERE 이름 = \'보리\';\\nUPDATE 캐릭터 SET 골드 = 골드 - 800 WHERE 이름 = \'미라\';"},{t:"③ 반쪽 상태 확인 후 ROLLBACK",q:"-- ②의 첫 문장(보리 +800)만 반영된 반쪽 상태\\nSELECT * FROM 캐릭터;\\nROLLBACK;\\nSELECT * FROM 캐릭터;"},{t:"④ 퀘스트 보상 — 한 트랜잭션",q:"START TRANSACTION;\\nUPDATE 퀘스트진행 SET 상태 = \'완료\' WHERE 이름 = \'레온\' AND 퀘스트 = \'슬라임 사냥\';\\nUPDATE 캐릭터 SET 골드 = 골드 + 200 WHERE 이름 = \'레온\';\\nINSERT INTO 인벤토리 VALUES (\'레온\', \'슬라임 젤리\');\\nCOMMIT;\\nSELECT * FROM 퀘스트진행;\\nSELECT * FROM 인벤토리;"}],ready:"RPG 거래소: 캐릭터 3명(레온 5,000 · 미라 300 · 보리 0골드), 매물 2개. ②→③은 이어서 실행하세요."}'

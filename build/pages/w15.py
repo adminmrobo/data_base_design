@@ -183,3 +183,41 @@ labs=('lab15:{setup:%s,presets:[{t:"① 주문 + 회원 + 상품 JOIN",q:"SELECT
 )
 for s in PAGE['steps']:
     s['def'] = {'lv1':'9~10주차 — SQL 데이터 정의(제약 조건)와 데이터 조작(질의·집계·조인·부속 질의·뷰).','lv2':'11주차 — 설계 5단계와 E-R 다이어그램의 릴레이션 변환 규칙.','lv3':'12주차 — 이상 현상, 함수 종속, 1NF·2NF·3NF·BCNF와 반정규화.','lv4':'13~14주차 — 트랜잭션·회복·병행 제어와 NoSQL·색인·OLAP 등 응용 기술.'}[s['id']]
+
+# ── 5칸: 종합 실습 — SQL 자동 채점 과제 (2026-11 보강) ─────────────────
+PAGE['steps'][3]['limit'] = '개념 복습은 끝났습니다. 마지막으로 한빛 마트 데이터로 SQL을 직접 써서 채점받아 봅니다.'
+PAGE['steps'][3]['limit_label'] = 'SQL을 직접 써서 확인하는 종합 실습이 남음'
+TASKS = [
+ ('gold 등급 회원의 이름과 적립금을 적립금이 많은 순으로', "SELECT 이름, 적립금 FROM 회원 WHERE 등급 = 'gold' ORDER BY 적립금 DESC;", True, 'WHERE + ORDER BY (10주)'),
+ ('제조업체별 상품 수 (제조업체, 상품수)', "SELECT 제조업체, COUNT(*) AS 상품수 FROM 상품 GROUP BY 제조업체;", False, 'GROUP BY + COUNT (10주)'),
+ ('주문 수량 합계가 30 이상인 상품번호와 합계', "SELECT 상품번호, SUM(수량) AS 합계 FROM 주문 GROUP BY 상품번호 HAVING SUM(수량) >= 30;", False, 'HAVING (10주)'),
+ ('한 번도 주문하지 않은 회원의 이름', "SELECT 이름 FROM 회원 WHERE 회원아이디 NOT IN (SELECT 회원아이디 FROM 주문);", False, '부속 질의 NOT IN 또는 LEFT JOIN … IS NULL (10주)'),
+ ('주문번호, 주문한 회원 이름, 상품명을 주문번호 순으로', "SELECT o.주문번호, m.이름, p.상품명 FROM 주문 o JOIN 회원 m ON o.회원아이디 = m.회원아이디 JOIN 상품 p ON o.상품번호 = p.상품번호 ORDER BY o.주문번호;", True, '세 표 JOIN (7·10주)'),
+ ('평균 단가보다 비싼 상품의 상품명과 단가', "SELECT 상품명, 단가 FROM 상품 WHERE 단가 > (SELECT AVG(단가) FROM 상품);", False, '스칼라 부속 질의 (10주)'),
+ ('2022년 2월 1일 이후(그날 포함) 주문 건수 하나', "SELECT COUNT(*) FROM 주문 WHERE 주문일자 >= '2022-02-01';", False, '날짜 조건 (10주)'),
+ ('총 주문 금액(수량 × 단가)이 가장 큰 회원의 이름과 금액 한 줄', "SELECT m.이름, SUM(o.수량 * p.단가) AS 금액 FROM 주문 o JOIN 회원 m ON o.회원아이디 = m.회원아이디 JOIN 상품 p ON o.상품번호 = p.상품번호 GROUP BY m.이름 ORDER BY 금액 DESC LIMIT 1;", True, 'JOIN + 집계 + 정렬 + LIMIT (10주)')]
+PAGE['steps'].append(dict(id='lv5', short='종합 실습', title='종합 실습 — 한빛 마트 SQL 과제 8문항 (자동 채점)', concept='SQL 종합 실습', en='sql comprehensive practice', cid='lab:concept/review-sql-practice',
+ tag='실습: 자동 채점', analogy='모의 실기 시험',
+ situation='위 ①칸 실습실과 같은 한빛 마트 데이터(회원 5 · 상품 5 · 주문 8)입니다. 문항마다 SQL을 직접 쓰고 「채점」을 누르면, 실습실 엔진이 정답 질의와 <b>결과 표를 비교</b>해 맞았는지 알려 줍니다. 칸 이름(별칭)은 달라도 되지만 값과 칸 순서는 같아야 합니다. 정렬이 요구된 문항은 순서까지 봅니다.',
+ pair=(('시험에서는','“결과를 쓰시오”, “빈칸을 채우시오” 문제는 결국 SQL이 무엇을 돌려주는지 아는지를 묻습니다. 직접 써 보고 결과를 맞혀 본 문장은 시험장에서 바로 떠오릅니다.'),
+       ('채점기는','내 SQL과 정답 SQL을 같은 데이터에서 실행해 결과 행을 비교합니다. 같은 결과를 내는 다른 SQL(예: NOT IN 대신 LEFT JOIN … IS NULL)도 정답입니다 — 시험에서도 “결과”가 기준입니다.')),
+ panel='<div id="gr15"></div><div class="dk-row" id="gr15k" style="margin-top:10px"></div>',
+ panel_title='SQL 과제 8문항 — 쓰고 채점하기',
+ sim='SQL 자동 채점 과제',
+ explain='<p><b>막혔을 때:</b> 「힌트」는 쓸 문법의 이름과 주차를 알려 줍니다. 그래도 막히면 「정답 보기」를 열고, 정답을 그대로 베끼지 말고 <b>한 절씩 지워 가며</b>(ORDER BY를 빼면? HAVING을 WHERE로 바꾸면?) 결과가 어떻게 바뀌는지 보세요. 틀린 결과에서 배우는 것이 시험에 더 오래 남습니다.</p>',
+ aicheck='<p>AI에게 과제 SQL을 받아 붙여 넣으면 맞을 때가 많습니다. 다만 4번처럼 <code>NOT IN</code>을 쓰는 문제에서 부속 질의 결과에 NULL이 섞이면 결과가 0행이 되는 함정이 있습니다(실제 MariaDB 동작). AI 답을 채점기에 넣어 맞더라도, “주문 표의 회원아이디에 NULL이 있으면?”을 스스로 물어보세요.</p>',
+ limit='여기까지가 기말 범위입니다. 아래 대결과 모의 문제 20개, 그리고 마지막 실전 연습장에서 준비도를 확인하세요.', limit_label='모의 문제로 최종 점검',
+ say=('sia','smile','8문항 다 맞히면 아래 계기판의 SQL 칸이 8/8이 돼요!'),
+ quiz=[dict(q='채점기가 “행 수는 같은데 결과가 다르다”고 했다. 가장 먼저 확인할 것은?',o=['DB를 다시 만든다','SELECT의 칸 순서와 ORDER BY(정렬 요구 문항)','테이블 이름','세미콜론'],a=1,why='같은 행 수인데 다르면 칸 순서가 바뀌었거나 정렬 순서가 다른 경우가 많습니다.'),
+       dict(q='“한 번도 주문하지 않은 회원”을 구하는 SQL로 알맞지 않은 것은?',o=['WHERE 회원아이디 NOT IN (SELECT 회원아이디 FROM 주문)','LEFT JOIN 주문 … WHERE 주문.주문번호 IS NULL','WHERE 회원아이디 IN (SELECT 회원아이디 FROM 주문)','WHERE NOT EXISTS (SELECT * FROM 주문 o WHERE o.회원아이디 = 회원.회원아이디)'],a=2,why='IN은 주문한 회원을 고릅니다. 나머지 셋은 주문하지 않은 회원을 고르는 같은 결과의 다른 표현입니다.')],
+ **{'def': '9~10주 SQL을 한빛 마트 데이터로 직접 작성하고, 결과 표 비교로 자동 채점받는 종합 실습.'}))
+PAGE['js'] += r'''
+var TK=__TASKS__,SET=LABS.lab15.setup,score={};window.SQLGRADE={ok:0,total:TK.length};
+LAB.$('#gr15').innerHTML=TK.map(function(t,i){return '<div class="dpanel" style="background:#fff;border:1px solid #d5dbe2;border-radius:10px;padding:10px 12px;margin:8px 0"><b>Q'+(i+1)+'.</b> '+t[0]+(t[2]?' <small style="color:#a35c00">(순서도 채점)</small>':'')+
+ '<textarea class="dq" id="gr15q'+i+'" spellcheck="false" style="width:100%;min-height:64px;font:13px/1.5 ui-monospace,Consolas,monospace;border:1px solid #d5dbe2;border-radius:8px;padding:6px;margin-top:6px" placeholder="SELECT ..."></textarea>'+
+ '<div class="ctrl"><button type="button" class="bt primary" data-g="'+i+'">채점</button><details style="display:inline-block"><summary class="bt">힌트</summary>'+t[3]+'</details><details style="display:inline-block"><summary class="bt">정답 보기</summary><code>'+LAB.esc(t[1])+'</code></details><span id="gr15m'+i+'"></span></div><div id="gr15r'+i+'" style="font-size:13px"></div></div>';}).join('');
+function upd(){var ok=Object.keys(score).filter(function(k){return score[k];}).length;window.SQLGRADE={ok:ok,total:TK.length};LAB.kpis(LAB.$('#gr15k'),[['맞힌 문항',ok+'/'+TK.length,'',ok===TK.length?'good':(ok>=6?'warn':'')],['시도한 문항',Object.keys(score).length+'/'+TK.length]]);}
+LAB.$$('#gr15 [data-g]').forEach(function(b){b.onclick=function(){var i=+b.dataset.g,db=LAB.DB();db.run(SET);var r=LAB.grade(db,LAB.$('#gr15q'+i).value,TK[i][1],{ordered:TK[i][2]});score[i]=r.ok;
+ LAB.$('#gr15m'+i).innerHTML=(r.ok?' <span style="color:#13733a;font-weight:700">정답</span> ':' <span style="color:#c9302c;font-weight:700">다시</span> ')+LAB.esc(r.msg);
+ LAB.$('#gr15r'+i).innerHTML=r.res?LAB.tableHTML(r.res.cols,r.res.rows.map(function(x){return x.map(function(v){return v==null?'NULL':MiniSQL.show(v);});}),{cap:'내 결과'}):'';upd();};});upd();
+'''.replace('__TASKS__', __import__('json').dumps([list(t) for t in TASKS], ensure_ascii=False))

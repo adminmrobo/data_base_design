@@ -46,7 +46,7 @@ function Gloss(GL){
 }
 
 /* ── 퀴즈 ── */
-var QSTAT={done:0,ok:0,total:0};
+var QSTAT={done:0,ok:0,total:0,by:{}};
 function Quiz(el,items){
   var h='<div class="qh">확인 퀴즈 · '+items.length+'문항</div>';
   items.forEach(function(q,i){QSTAT.total++; h+='<div class="q" data-i="'+i+'"><p>Q'+(i+1)+'. '+q.q+'</p><div class="opts">'+q.o.map(function(o,j){return '<button type="button" class="bt" data-j="'+j+'">'+(j+1)+') '+o+'</button>';}).join('')+'</div>'+
@@ -56,7 +56,7 @@ function Quiz(el,items){
     $$('.opts button',qe).forEach(function(b){b.onclick=function(){var j=+b.dataset.j; var ok=j===q.a;
       $$('.opts button',qe).forEach(function(x){x.classList.remove('ok','no');}); b.classList.add(ok?'ok':'no'); if(!ok)$$('.opts button',qe)[q.a].classList.add('ok');
       var w=$('.why',qe); w.hidden=false; w.innerHTML=(ok?'<b style="color:#13733a">맞아요.</b> ':'<b style="color:#c9302c">다시 볼까요.</b> ')+q.why;
-      if(!answered){answered=true;QSTAT.done++; if(ok)QSTAT.ok++; updProg();}};});});
+      if(!answered){answered=true;QSTAT.done++; if(ok)QSTAT.ok++; QSTAT.by[(el.dataset.quiz||'q')+':'+qe.dataset.i]={ok:ok}; updProg();}};});});
 }
 function updProg(){var e=$('#qprog'); if(e)e.textContent='퀴즈 '+QSTAT.done+'/'+QSTAT.total+' · 맞힘 '+QSTAT.ok;}
 
@@ -148,7 +148,31 @@ window.addEventListener('scroll',prog,{passive:true});
 function Flash(el,cards){el.classList.add('flash'); el.innerHTML=cards.map(function(c,i){return '<button type="button" class="bt" data-i="'+i+'">'+c[0]+'</button>';}).join('');
   $$('button',el).forEach(function(b){var c=cards[+b.dataset.i],f=false; b.onclick=function(){f=!f; b.classList.toggle('flip',f); b.innerHTML=f?c[1]:c[0];};});}
 
-window.LAB={$:$,$$:$$,esc:esc,rng:rng,fit:fit,addMod:addMod,stamp:stamp,Gloss:Gloss,Quiz:Quiz,Duel:Duel,Flow:Flow,SQLLab:SQLLab,tableHTML:tableHTML,Flash:Flash,RM:RM};
+
+/* ── 실전 연습장 공통 도구 ── */
+function kpis(el,items){el.innerHTML=items.map(function(k){return '<div class="dk '+(k[3]||'')+'"><span>'+k[0]+'</span><b>'+k[1]+'</b>'+(k[2]?'<small>'+k[2]+'</small>':'')+'</div>';}).join('');}
+var PALC=['#1e55c8','#c93030','#13733a','#a35c00','#9b3fb5','#0b7a86'];
+function chart(cv,o){var f=fit(cv),c=f.c,W=f.W,H=f.H,L=46,R=10,T=14,B=34,ser=o.series,lab=o.labels,n=lab.length;
+ c.clearRect(0,0,W,H);c.font='12px '+getComputedStyle(document.body).fontFamily;
+ var mx=o.ymax||Math.max.apply(null,[1].concat.apply([],ser.map(function(s){return s.data;})));mx=mx*1.1;
+ c.strokeStyle='#e3e8ee';c.fillStyle='#5b6874';c.textAlign='right';
+ for(var g=0;g<=4;g++){var y=T+(H-T-B)*(1-g/4);c.beginPath();c.moveTo(L,y);c.lineTo(W-R,y);c.stroke();c.fillText((o.yfmt||function(v){v=Math.round(v);return v>=1e8?(v/1e8).toFixed(1)+'억':v>=1e4?(Math.round(v/1e3)/10).toLocaleString()+'만':v.toLocaleString();})(mx*g/4),L-6,y+4);}
+ var bw=(W-L-R)/n;c.textAlign='center';
+ var step=Math.max(1,Math.ceil(n/Math.max(1,Math.floor((W-L-R)/42))));
+ lab.forEach(function(t,i){if(i%step===0)c.fillText(t,L+bw*(i+.5),H-B+16);});
+ ser.forEach(function(s,si){c.fillStyle=c.strokeStyle=s.color||PALC[si%6];
+  if((o.type||'bar')==='bar'){var w=bw*.8/ser.length;s.data.forEach(function(v,i){var h=(H-T-B)*v/mx;c.fillRect(L+bw*i+bw*.1+w*si,H-B-h,w-1,h);});}
+  else{c.lineWidth=2.5;c.beginPath();s.data.forEach(function(v,i){var x=L+bw*(i+.5),y=H-B-(H-T-B)*v/mx;i?c.lineTo(x,y):c.moveTo(x,y);});c.stroke();}});
+ if(ser.length>1||o.legend){var x=L+4;c.textAlign='left';ser.forEach(function(s,si){c.fillStyle=s.color||PALC[si%6];c.fillRect(x,2,10,10);c.fillStyle='#16212b';c.fillText(s.name,x+14,11);x+=c.measureText(s.name).width+30;});}
+}
+function sqlRows(db,q){var last=null;MiniSQL.split(q).forEach(function(st){var r=db.exec(st);if(r&&r.rows)last=r;});return last;}
+function grade(db,mine,ans,opt){opt=opt||{};var a,b;try{b=sqlRows(db,ans);}catch(e){return {ok:false,msg:'정답 질의 오류: '+e.message};}
+ try{a=sqlRows(db,mine);}catch(e){return {ok:false,msg:e.message};}
+ if(!a)return {ok:false,msg:'SELECT 결과가 없습니다.'};
+ var norm=function(r){var x=r.rows.map(function(row){return row.map(function(v){return v===null?'NULL':MiniSQL.show(v);}).join('|');});return opt.ordered?x:x.sort();};
+ var A=norm(a),Bn=norm(b),ok=A.length===Bn.length&&A.every(function(v,i){return v===Bn[i];});
+ return {ok:ok,res:a,msg:ok?'정답과 같은 결과입니다 ('+A.length+'행).':'결과가 다릅니다 — 내 결과 '+A.length+'행 / 기대 '+Bn.length+'행'+(A.length===Bn.length?' (값 또는 칸 순서가 다름)':'')};}
+window.QSTAT=QSTAT;window.LAB={$:$,$$:$$,esc:esc,rng:rng,fit:fit,addMod:addMod,stamp:stamp,Gloss:Gloss,Quiz:Quiz,Duel:Duel,Flow:Flow,SQLLab:SQLLab,tableHTML:tableHTML,Flash:Flash,RM:RM,kpis:kpis,chart:chart,sqlRows:sqlRows,grade:grade,DB:function(){return new MiniSQL.DB();}};
 window.addEventListener('DOMContentLoaded',function(){
   Cast.fill();
   if(window.QUIZ)Object.keys(QUIZ).forEach(function(k){var e=document.querySelector('.quiz[data-quiz="'+k+'"]'); if(e)Quiz(e,QUIZ[k]);});

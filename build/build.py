@@ -71,6 +71,11 @@ def build_kg(P, fname):
     N(topic, 'Topic', P['title'], P['title_en'], '#top', definition={'ko': P['question']})
     N('lab:topic/database-design', 'Area', '데이터베이스 설계', 'database design', '#top', definition={'ko': '데이터를 정확하고 효율적으로 저장·관리하도록 구조를 정하는 일.'})
     L(topic, 'broader', 'lab:topic/database-design', '#top')
+    if P.get('practice'):
+        pid = 'lab:simulation/%s-practice' % page
+        N(pid, 'Simulation', '실전 연습장 — ' + P['practice']['title'], 'practice dashboard: ' + P['practice'].get('en', P['title_en']), '#practice',
+          definition={'ko': re.sub('<[^>]+>', '', P['practice']['scenario'])[:160]})
+        L(topic, 'demonstratedBy', pid, '#practice')
     steps = P['steps']
     cids = []
     for i, s in enumerate(steps):
@@ -263,7 +268,7 @@ def page_html(P, prev, nxt, fname):
     # 그림 키 수집
     body_parts = []
     body_parts.append('<nav class="top" aria-label="이 페이지 차례"><a class="brand" href="../index.html"><span class="hex">DB</span>%s</a><div class="links">%s</div></nav>' % (
-        SERIES, ''.join('<a href="#%s">%s</a>' % a for a in [('top', '처음'), ('crew', '사용법'), ('why', '왜')] + [(s['id'], '%d %s' % (i + 1, s['short'])) for i, s in enumerate(P['steps'])] + P.get('nav_extra', []) + [('duel', '대결'), ('summary', '정리'), ('kg', '색인'), ('export', '꾸러미')])))
+        SERIES, ''.join('<a href="#%s">%s</a>' % a for a in [('top', '처음'), ('crew', '사용법'), ('why', '왜')] + [(s['id'], '%d %s' % (i + 1, s['short'])) for i, s in enumerate(P['steps'])] + P.get('nav_extra', []) + [('duel', '대결'), ('summary', '정리')] + ([('practice', '연습장')] if P.get('practice') else []) + [('kg', '색인'), ('export', '꾸러미')])))
     body_parts.append(cover(P))
     talk = ''.join(say(*t) for t in P['hero_talk'])
     kp = ''.join('<div><b>%s</b><span>%s</span></div>' % (a, b) for a, b in P['kpis'])
@@ -283,6 +288,13 @@ def page_html(P, prev, nxt, fname):
     body_parts.append(duel_html(P['duel']))
     body_parts.append('<section class="level" id="summary"><div class="wrap"><h2>정리 — 한 장으로</h2>%s</div></section>' % P['summary'])
     body_parts.append('<section class="level outro" id="outro"><div class="wrap"><h2>오늘의 마무리</h2><div class="talk">%s</div>%s</div></section>' % (''.join(say(*t) for t in P['outro']), P.get('next_note', '')))
+    if P.get('practice'):
+        pr = P['practice']
+        tasks = ''.join('<li><label><input type="checkbox"> %s</label></li>' % t for t in pr.get('tasks', []))
+        body_parts.append('<section class="level practice" id="practice"><div class="wrap"><h2>실전 연습장 — %s</h2><p class="kicker">%s</p><div class="pr-scn">%s</div>'
+                          '<div class="dash" id="dash">%s</div>%s%s</div></section>' % (
+            pr['title'], pr.get('kicker', '배운 것을 대시보드에서 직접 돌려 보기'), pr['scenario'], pr['html'],
+            ('<div class="pr-tasks"><h3>미션</h3><ol>%s</ol></div>' % tasks) if tasks else '', pr.get('after', '')))
     body_parts.append('<section class="kgx kgx-sec level" id="kg"><div class="kgx-wrap"><h2>지식 색인 — 이 페이지에서 찾아보기</h2><p class="kgx-sub">이 페이지에 나온 개념, 용어, 주장, 열린 질문을 한곳에 모았습니다. 검색하고, 항목을 눌러 관계를 보고, "본문"으로 돌아갑니다.</p><div id="kg-mount"></div></div></section>')
     body_parts.append('<section class="kgx kgx-sec level" id="export"><div class="kgx-wrap"><h2>온톨로지·서지 꾸러미 — 이 페이지의 지식을 가져가기</h2><p class="kgx-sub">지식 색인을 출처와 함께 파일로 내려받습니다. Zotero(BibTeX·RIS), Protégé(Turtle), Neo4j·Gephi(CSV), 여러 페이지 합치기(kg.json)에 씁니다.</p><div id="export-mount"></div></div></section></main>')
     # 바닥글
@@ -308,7 +320,7 @@ def page_html(P, prev, nxt, fname):
     data_js = 'var SPRITE=%s;\nvar QUIZ=%s;\nvar GL=%s;\nvar FLOWS={%s};\nvar LABS={%s};\nvar CARDS=%s;\n' % (
         esc_json(sprites), esc_json(quiz), esc_json({k: v[:3] for k, v in P.get('gloss', {}).items()}),
         ','.join('%s:%s' % (json.dumps(s['flow']['id']), s['flow']['js']) for s in P['steps'] if s.get('flow')) + (',' + P['flows_extra'] if P.get('flows_extra') else ''),
-        P.get('labs', ''), esc_json(P.get('cards', {})))
+        ','.join(x for x in [P.get('labs', ''), P.get('practice', {}).get('labs', '')] if x), esc_json(P.get('cards', {})))
     duel_js = 'var DUEL={el:"#duelbox",higherIsBetter:%s,drawMargin:%s,run:function(){%s},announce:function(r){%s},verdict:function(res,r){%s}};' % (
         'true' if P['duel'].get('higher', True) else 'false', P['duel'].get('margin', 0), P['duel']['run'], P['duel']['announce'], P['duel']['verdict'])
     head_meta = ''.join('<meta name="%s" content="%s">' % (k, E(v)) for k, v in [
@@ -335,7 +347,7 @@ var PAGE={init:function(LAB){%s}};
 <script>%s</script>
 <script>%s</script>
 </body></html>''' % (P['title'], P['subtitle'], SERIES, head_meta, E(meta['title']), url, CSS, P.get('css', ''), body,
-                     esc_json(kg), esc_json(jsonld(kg, meta)), esc_json(refs), esc_json(meta), data_js, duel_js, P.get('js', ''), JS, KGX)
+                     esc_json(kg), esc_json(jsonld(kg, meta)), esc_json(refs), esc_json(meta), data_js, duel_js, P.get('js', '') + '\n;(function(){' + P.get('practice', {}).get('js', '') + '})();', JS, KGX)
     return doc, kg
 
 # ── 목차 ─────────────────────────────────────────────────
@@ -375,6 +387,11 @@ def main():
         exec(open(f, encoding='utf-8').read(), g)
         P = g['PAGE']
         P.setdefault('id', 'db_w' + P['num'])
+        if 'practice' not in P:
+            import practice_a, practice_b
+            PR = dict(practice_a.PRACTICE); PR.update(practice_b.PRACTICE)
+            if P['num'] in PR:
+                P['practice'] = PR[P['num']]
         fn = 'w%s_%s.html' % (P['num'], P['slug'])
         pages.append((P, fn))
     os.makedirs(os.path.join(ROOT, 'weeks'), exist_ok=True)

@@ -1839,6 +1839,14 @@
     "db_w13"
    ]
   },
+  "lab:concept/transaction-lab-case": {
+   "ko": "트랜잭션 실습과 사례 분석",
+   "en": "transaction lab and case analysis",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
   "lab:term/transaction-unit": {
    "ko": "트랜잭션",
    "en": "transaction unit",
@@ -1911,6 +1919,14 @@
     "db_w13"
    ]
   },
+  "lab:term/select-for-update": {
+   "ko": "FOR UPDATE",
+   "en": "select for update",
+   "type": "Term",
+   "pages": [
+    "db_w13"
+   ]
+  },
   "lab:work/ahn2025sqltcl": {
    "ko": "SQL 문법 정리 (DCL, TCL 추가)",
    "en": "SQL 문법 정리 (DCL, TCL 추가)",
@@ -1976,6 +1992,14 @@
     "db_w14"
    ]
   },
+  "lab:concept/operational-design-case": {
+   "ko": "운영 설계 사례 분석",
+   "en": "operational design case analysis",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
   "lab:term/big-data": {
    "ko": "빅데이터",
    "en": "big data",
@@ -2028,6 +2052,22 @@
    "ko": "데이터 웨어하우스",
    "en": "data warehouse",
    "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/sharding": {
+   "ko": "샤딩",
+   "en": "sharding",
+   "type": "Term",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/caching": {
+   "ko": "캐싱",
+   "en": "caching",
+   "type": "Term",
    "pages": [
     "db_w14"
    ]
@@ -2099,6 +2139,14 @@
   "lab:concept/review-transaction-application": {
    "ko": "트랜잭션과 응용 기술 복습",
    "en": "review of transactions and applications",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-sql-practice": {
+   "ko": "SQL 종합 실습",
+   "en": "sql comprehensive practice",
    "type": "Concept",
    "pages": [
     "db_w15"
