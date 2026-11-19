@@ -1,0 +1,160 @@
+{
+ "schema": "ahnboat-cover-manifest/1",
+ "repo": "adminmrobo/data_base_design",
+ "title": "데이터베이스 설계 연구실 — 데이터베이스 설계 15회차",
+ "site": "https://adminmrobo.github.io/data_base_design/",
+ "updated": "2026-11-20",
+ "author": "안상선",
+ "characters": [
+  "doc",
+  "asst",
+  "fly",
+  "jupanbot"
+ ],
+ "robot": "jupanbot-v2",
+ "items": [
+  {
+   "key": "cover_index",
+   "page": "index.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_index"
+  },
+  {
+   "key": "cover_01",
+   "page": "weeks/w01_course_guide.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_01"
+  },
+  {
+   "key": "cover_02",
+   "page": "weeks/w02_data_and_database.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_02"
+  },
+  {
+   "key": "cover_03",
+   "page": "weeks/w03_dbms.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_03"
+  },
+  {
+   "key": "cover_04",
+   "page": "weeks/w04_database_system.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_04"
+  },
+  {
+   "key": "cover_05",
+   "page": "weeks/w05_er_modeling.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_05"
+  },
+  {
+   "key": "cover_06",
+   "page": "weeks/w06_relational_model.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_06"
+  },
+  {
+   "key": "cover_07",
+   "page": "weeks/w07_relational_operations.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_07"
+  },
+  {
+   "key": "cover_08",
+   "page": "weeks/w08_midterm_review.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_08"
+  },
+  {
+   "key": "cover_09",
+   "page": "weeks/w09_sql_ddl.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_09"
+  },
+  {
+   "key": "cover_10",
+   "page": "weeks/w10_sql_dml.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_10"
+  },
+  {
+   "key": "cover_11",
+   "page": "weeks/w11_database_design_process.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_11"
+  },
+  {
+   "key": "cover_12",
+   "page": "weeks/w12_normalization.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_12"
+  },
+  {
+   "key": "cover_13",
+   "page": "weeks/w13_transaction_recovery_concurrency.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_13"
+  },
+  {
+   "key": "cover_14",
+   "page": "weeks/w14_database_applications.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_14"
+  },
+  {
+   "key": "cover_15",
+   "page": "weeks/w15_final_review.html",
+   "kind": "cover",
+   "status": "placeholder",
+   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_15"
+  }
+ ],
+ "ontology": {
+  "pages": [
+   "weeks/w01_course_guide.html",
+   "weeks/w02_data_and_database.html",
+   "weeks/w03_dbms.html",
+   "weeks/w04_database_system.html",
+   "weeks/w05_er_modeling.html",
+   "weeks/w06_relational_model.html",
+   "weeks/w07_relational_operations.html",
+   "weeks/w08_midterm_review.html",
+   "weeks/w09_sql_ddl.html",
+   "weeks/w10_sql_dml.html",
+   "weeks/w11_database_design_process.html",
+   "weeks/w12_normalization.html",
+   "weeks/w13_transaction_recovery_concurrency.html",
+   "weeks/w14_database_applications.html",
+   "weeks/w15_final_review.html"
+  ],
+  "registry": "data/KG_00_registry.json"
+ },
+ "i18n": {
+  "langs": [
+   "ko"
+  ],
+  "pages": {}
+ },
+ "archive": {
+  "from": "adminmrobo/database_01of04",
+  "path": "archive/database_01of04/",
+  "status": "archived"
+ }
+}

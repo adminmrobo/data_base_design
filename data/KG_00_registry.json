@@ -1,0 +1,2180 @@
+{
+ "version": "1.0",
+ "series": "데이터베이스 설계 연구실",
+ "updated": "2026-11-20",
+ "domain": "db",
+ "ids": {
+  "lab:topic/db-w01": {
+   "ko": "과목 사용 설명서",
+   "en": "Course guide and everyday databases",
+   "type": "Topic",
+   "pages": [
+    "db_w01",
+    "db_w02"
+   ]
+  },
+  "lab:topic/database-design": {
+   "ko": "데이터베이스 설계",
+   "en": "database design",
+   "type": "Area",
+   "pages": [
+    "db_w01",
+    "db_w02",
+    "db_w03",
+    "db_w04",
+    "db_w05",
+    "db_w06",
+    "db_w07",
+    "db_w08",
+    "db_w09",
+    "db_w10",
+    "db_w11",
+    "db_w12",
+    "db_w13",
+    "db_w14",
+    "db_w15"
+   ]
+  },
+  "lab:concept/database": {
+   "ko": "데이터베이스",
+   "en": "database in everyday life",
+   "type": "Concept",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:concept/spreadsheet-vs-database": {
+   "ko": "스프레드시트와 데이터베이스의 차이",
+   "en": "spreadsheet versus database",
+   "type": "Concept",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:concept/dbms-practice-environment": {
+   "ko": "DBMS 실습 환경",
+   "en": "DBMS practice environment",
+   "type": "Concept",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:concept/database-design-overview": {
+   "ko": "데이터베이스 설계",
+   "en": "database design overview",
+   "type": "Concept",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/database": {
+   "ko": "데이터베이스",
+   "en": "database",
+   "type": "Concept",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/table": {
+   "ko": "테이블",
+   "en": "table",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/query": {
+   "ko": "질의",
+   "en": "query",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/dbms": {
+   "ko": "DBMS",
+   "en": "dbms",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/port": {
+   "ko": "포트",
+   "en": "port",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/sql": {
+   "ko": "SQL",
+   "en": "sql",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/constraint": {
+   "ko": "제약 조건",
+   "en": "constraint",
+   "type": "Term",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:term/entity": {
+   "ko": "개체",
+   "en": "entity",
+   "type": "Concept",
+   "pages": [
+    "db_w01",
+    "db_w05"
+   ]
+  },
+  "lab:term/index": {
+   "ko": "인덱스",
+   "en": "index",
+   "type": "Term",
+   "pages": [
+    "db_w01",
+    "db_w11"
+   ]
+  },
+  "lab:work/ahn2025syllabus": {
+   "ko": "데이터베이스설계 (2025년 2학기) 강의 개요",
+   "en": "데이터베이스설계 (2025년 2학기) 강의 개요",
+   "type": "Work",
+   "pages": [
+    "db_w01",
+    "db_w02",
+    "db_w08",
+    "db_w15"
+   ]
+  },
+  "lab:work/ahn2025cases": {
+   "ko": "데이터베이스 설계사례 (업종별)",
+   "en": "데이터베이스 설계사례 (업종별)",
+   "type": "Work",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:work/ahn2026install": {
+   "ko": "초보자도 쉽게 따라하는 DB 환경 설치",
+   "en": "초보자도 쉽게 따라하는 DB 환경 설치",
+   "type": "Work",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:work/kim3ed": {
+   "ko": "데이터베이스 개론 (3판)",
+   "en": "데이터베이스 개론 (3판)",
+   "type": "Work",
+   "pages": [
+    "db_w01",
+    "db_w02",
+    "db_w03",
+    "db_w04",
+    "db_w05",
+    "db_w06",
+    "db_w07",
+    "db_w08",
+    "db_w09",
+    "db_w10",
+    "db_w11",
+    "db_w12",
+    "db_w13",
+    "db_w14",
+    "db_w15"
+   ]
+  },
+  "lab:method/db_w01-fly": {
+   "ko": "번호순 명부를 반씩 접어 찾기",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:method/db_w01-robo": {
+   "ko": "처음부터 한 줄도 빠짐없이 훑기",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w01"
+   ]
+  },
+  "lab:topic/db-w02": {
+   "ko": "데이터와 데이터베이스",
+   "en": "Data, information and the database",
+   "type": "Topic",
+   "pages": [
+    "db_w02",
+    "db_w03"
+   ]
+  },
+  "lab:concept/data-and-information": {
+   "ko": "데이터와 정보",
+   "en": "data and information",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:concept/database-definition": {
+   "ko": "데이터베이스의 정의",
+   "en": "definition of a database",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:concept/database-characteristics": {
+   "ko": "데이터베이스의 특징",
+   "en": "characteristics of a database",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:concept/data-classification": {
+   "ko": "데이터의 분류",
+   "en": "classification of data",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/information-processing": {
+   "ko": "정보 처리",
+   "en": "information processing",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/information-system": {
+   "ko": "정보 시스템",
+   "en": "information system",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/integrated-data": {
+   "ko": "통합 데이터",
+   "en": "integrated data",
+   "type": "Concept",
+   "pages": [
+    "db_w02",
+    "db_w08"
+   ]
+  },
+  "lab:term/operational-data": {
+   "ko": "운영 데이터",
+   "en": "operational data",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/content-reference": {
+   "ko": "내용으로 참조",
+   "en": "content reference",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/semi-structured-data": {
+   "ko": "반정형",
+   "en": "semi structured data",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/unstructured-data": {
+   "ko": "비정형",
+   "en": "unstructured data",
+   "type": "Concept",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/ordinal-scale": {
+   "ko": "서열",
+   "en": "ordinal scale",
+   "type": "Term",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/interval-scale": {
+   "ko": "등간",
+   "en": "interval scale",
+   "type": "Term",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:term/continuous-variable": {
+   "ko": "연속형",
+   "en": "continuous variable",
+   "type": "Term",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:work/ahn2025w02": {
+   "ko": "데이터베이스설계 2주차 강의 교안: 데이터와 데이터베이스",
+   "en": "데이터베이스설계 2주차 강의 교안: 데이터와 데이터베이스",
+   "type": "Work",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:method/db_w02-fly": {
+   "ko": "월평균 하나만 저장 (요리만)",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:method/db_w02-robo": {
+   "ko": "28일치 원자료를 모두 저장 (재료 전부)",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w02"
+   ]
+  },
+  "lab:topic/db-w03": {
+   "ko": "데이터베이스 관리 시스템",
+   "en": "Database management system",
+   "type": "Topic",
+   "pages": [
+    "db_w03",
+    "db_w04"
+   ]
+  },
+  "lab:concept/data-redundancy": {
+   "ko": "데이터 중복",
+   "en": "data redundancy in file systems",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:concept/data-dependency": {
+   "ko": "데이터 종속성",
+   "en": "data dependency",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:concept/rollback": {
+   "ko": "회복과 롤백",
+   "en": "recovery and rollback",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:concept/dbms": {
+   "ko": "데이터베이스 관리 시스템",
+   "en": "database management system",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/data-redundancy": {
+   "ko": "데이터 중복",
+   "en": "data redundancy",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/inconsistency": {
+   "ko": "불일치",
+   "en": "inconsistency",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/data-dependency": {
+   "ko": "종속성",
+   "en": "data dependency",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/rollback": {
+   "ko": "롤백",
+   "en": "rollback",
+   "type": "Term",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/transaction": {
+   "ko": "트랜잭션",
+   "en": "transaction",
+   "type": "Concept",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/journal-log": {
+   "ko": "저널",
+   "en": "journal log",
+   "type": "Term",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/ddl": {
+   "ko": "DDL",
+   "en": "ddl",
+   "type": "Term",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/dml": {
+   "ko": "DML",
+   "en": "dml",
+   "type": "Term",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/dcl": {
+   "ko": "DCL",
+   "en": "dcl",
+   "type": "Term",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:term/nosql": {
+   "ko": "NoSQL",
+   "en": "nosql",
+   "type": "Term",
+   "pages": [
+    "db_w03",
+    "db_w14"
+   ]
+  },
+  "lab:work/ahn2025w03": {
+   "ko": "데이터베이스설계 3주차 강의 교안: 데이터베이스 관리 시스템",
+   "en": "데이터베이스설계 3주차 강의 교안: 데이터베이스 관리 시스템",
+   "type": "Work",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:work/ahn2025rpg": {
+   "ko": "RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드",
+   "en": "RPG 용사의 전설 — 데이터베이스 설계자의 실무 프로젝트 가이드",
+   "type": "Work",
+   "pages": [
+    "db_w03",
+    "db_w11",
+    "db_w13",
+    "db_w14"
+   ]
+  },
+  "lab:method/db_w03-fly": {
+   "ko": "엑셀 파일 몇 개로 버티기",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:method/db_w03-robo": {
+   "ko": "DBMS 도입",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w03"
+   ]
+  },
+  "lab:topic/db-w04": {
+   "ko": "데이터베이스 시스템",
+   "en": "Database system architecture",
+   "type": "Topic",
+   "pages": [
+    "db_w04",
+    "db_w05"
+   ]
+  },
+  "lab:concept/database-system": {
+   "ko": "데이터베이스 시스템",
+   "en": "database system components",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:concept/three-schema-architecture": {
+   "ko": "3단계 데이터베이스 구조",
+   "en": "three-schema architecture",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:concept/data-independence": {
+   "ko": "데이터 독립성",
+   "en": "data independence",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:concept/data-dictionary": {
+   "ko": "데이터 사전",
+   "en": "data dictionary",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/schema": {
+   "ko": "스키마",
+   "en": "schema",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/instance": {
+   "ko": "인스턴스",
+   "en": "instance",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/external-schema": {
+   "ko": "외부 스키마",
+   "en": "external schema",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/conceptual-schema": {
+   "ko": "개념 스키마",
+   "en": "conceptual schema",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/internal-schema": {
+   "ko": "내부 스키마",
+   "en": "internal schema",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/mapping": {
+   "ko": "사상",
+   "en": "mapping",
+   "type": "Concept",
+   "pages": [
+    "db_w04",
+    "db_w08"
+   ]
+  },
+  "lab:term/logical-data-independence": {
+   "ko": "논리적 독립성",
+   "en": "logical data independence",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/physical-data-independence": {
+   "ko": "물리적 독립성",
+   "en": "physical data independence",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/view": {
+   "ko": "뷰",
+   "en": "view",
+   "type": "Term",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/metadata": {
+   "ko": "메타데이터",
+   "en": "metadata",
+   "type": "Concept",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/query-processor": {
+   "ko": "질의 처리기",
+   "en": "query processor",
+   "type": "Term",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:term/stored-data-manager": {
+   "ko": "저장 데이터 관리자",
+   "en": "stored data manager",
+   "type": "Term",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:work/ahn2025w04": {
+   "ko": "데이터베이스설계 4주차 강의 교안: 데이터베이스 시스템",
+   "en": "데이터베이스설계 4주차 강의 교안: 데이터베이스 시스템",
+   "type": "Work",
+   "pages": [
+    "db_w04",
+    "db_w06"
+   ]
+  },
+  "lab:method/db_w04-fly": {
+   "ko": "ALTER TABLE + 뷰(사상) 수정",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:method/db_w04-robo": {
+   "ko": "데이터 사전(카탈로그) 직접 수정",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w04"
+   ]
+  },
+  "lab:topic/db-w05": {
+   "ko": "데이터 모델링과 E-R 모델",
+   "en": "Data modeling and the E-R model",
+   "type": "Topic",
+   "pages": [
+    "db_w05",
+    "db_w06"
+   ]
+  },
+  "lab:concept/data-modeling": {
+   "ko": "데이터 모델링",
+   "en": "data modeling",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:concept/requirements-analysis": {
+   "ko": "요구사항 분석",
+   "en": "requirements analysis",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:concept/er-attribute-types": {
+   "ko": "E-R 다이어그램의 속성",
+   "en": "attributes in the E-R model",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:concept/relationship-cardinality": {
+   "ko": "관계와 대응 수",
+   "en": "relationship cardinality",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/abstraction": {
+   "ko": "추상화",
+   "en": "abstraction",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/data-model": {
+   "ko": "데이터 모델",
+   "en": "data model",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/attribute": {
+   "ko": "속성",
+   "en": "attribute",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/relationship": {
+   "ko": "관계",
+   "en": "relationship",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/weak-entity": {
+   "ko": "약한 개체",
+   "en": "weak entity",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/multivalued-attribute": {
+   "ko": "다중값 속성",
+   "en": "multivalued attribute",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/derived-attribute": {
+   "ko": "유도 속성",
+   "en": "derived attribute",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/composite-attribute": {
+   "ko": "복합 속성",
+   "en": "composite attribute",
+   "type": "Concept",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:term/total-participation": {
+   "ko": "필수 참여",
+   "en": "total participation",
+   "type": "Concept",
+   "pages": [
+    "db_w05",
+    "db_w11"
+   ]
+  },
+  "lab:term/intersection-entity": {
+   "ko": "교차 개체",
+   "en": "intersection entity",
+   "type": "Concept",
+   "pages": [
+    "db_w05",
+    "db_w08"
+   ]
+  },
+  "lab:work/ahn2025w04erd": {
+   "ko": "데이터베이스 설계 4주차 — ERD 작성, 관계 데이터 모델링, 정규화 과정 및 실무 적용",
+   "en": "데이터베이스 설계 4주차 — ERD 작성, 관계 데이터 모델링, 정규화 과정 및 실무 적용",
+   "type": "Work",
+   "pages": [
+    "db_w05",
+    "db_w08",
+    "db_w11",
+    "db_w12",
+    "db_w15"
+   ]
+  },
+  "lab:work/ahn2025worst": {
+   "ko": "데이터 베이스 설계 : worst case",
+   "en": "데이터 베이스 설계 : worst case",
+   "type": "Work",
+   "pages": [
+    "db_w05",
+    "db_w12"
+   ]
+  },
+  "lab:method/db_w05-fly": {
+   "ko": "수강 연결 개체(교차 개체) 따로 두기",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:method/db_w05-robo": {
+   "ko": "학생 표에 과목코드 칸 하나 추가",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w05"
+   ]
+  },
+  "lab:topic/db-w06": {
+   "ko": "관계 데이터 모델",
+   "en": "The relational data model",
+   "type": "Topic",
+   "pages": [
+    "db_w06",
+    "db_w07"
+   ]
+  },
+  "lab:concept/relation": {
+   "ko": "릴레이션",
+   "en": "relation",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:concept/relation-properties": {
+   "ko": "릴레이션의 특징",
+   "en": "properties of a relation",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:concept/relational-keys": {
+   "ko": "키",
+   "en": "keys in the relational model",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:concept/integrity-constraints": {
+   "ko": "무결성 제약 조건",
+   "en": "integrity constraints",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/tuple": {
+   "ko": "튜플",
+   "en": "tuple",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/domain": {
+   "ko": "도메인",
+   "en": "domain",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/degree": {
+   "ko": "차수",
+   "en": "degree",
+   "type": "Term",
+   "pages": [
+    "db_w06",
+    "db_w08"
+   ]
+  },
+  "lab:term/cardinality": {
+   "ko": "카디널리티",
+   "en": "cardinality",
+   "type": "Term",
+   "pages": [
+    "db_w06",
+    "db_w08"
+   ]
+  },
+  "lab:term/null": {
+   "ko": "NULL",
+   "en": "null",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/atomicity-of-attribute": {
+   "ko": "원자성",
+   "en": "atomicity of attribute",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/super-key": {
+   "ko": "슈퍼키",
+   "en": "super key",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/candidate-key": {
+   "ko": "후보키",
+   "en": "candidate key",
+   "type": "Term",
+   "pages": [
+    "db_w06",
+    "db_w08"
+   ]
+  },
+  "lab:term/primary-key": {
+   "ko": "기본키",
+   "en": "primary key",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/alternate-key": {
+   "ko": "대체키",
+   "en": "alternate key",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/foreign-key": {
+   "ko": "외래키",
+   "en": "foreign key",
+   "type": "Term",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/referential-integrity": {
+   "ko": "참조 무결성",
+   "en": "referential integrity",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:term/entity-integrity": {
+   "ko": "개체 무결성",
+   "en": "entity integrity",
+   "type": "Concept",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:work/codd1970relational": {
+   "ko": "A Relational Model of Data for Large Shared Data Banks",
+   "en": "A Relational Model of Data for Large Shared Data Banks",
+   "type": "Work",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:work/ahn2025sqltext": {
+   "ko": "SQL 기본 문법 (교재 예제 코드 수정)",
+   "en": "SQL 기본 문법 (교재 예제 코드 수정)",
+   "type": "Work",
+   "pages": [
+    "db_w06",
+    "db_w09",
+    "db_w10"
+   ]
+  },
+  "lab:method/db_w06-fly": {
+   "ko": "(학번, 과목코드) 복합키",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:method/db_w06-robo": {
+   "ko": "수강ID 대리키 (자동 번호)",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w06"
+   ]
+  },
+  "lab:topic/db-w07": {
+   "ko": "관계 데이터 연산",
+   "en": "Relational algebra and joins",
+   "type": "Topic",
+   "pages": [
+    "db_w07",
+    "db_w08"
+   ]
+  },
+  "lab:concept/selection-projection": {
+   "ko": "셀렉트와 프로젝트",
+   "en": "selection and projection",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:concept/set-operations": {
+   "ko": "일반 집합 연산",
+   "en": "set operations and cartesian product",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:concept/join": {
+   "ko": "조인",
+   "en": "join operations",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:concept/division": {
+   "ko": "디비전",
+   "en": "division",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/selection": {
+   "ko": "셀렉트",
+   "en": "selection",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/projection": {
+   "ko": "프로젝트",
+   "en": "projection",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/closure-property": {
+   "ko": "폐쇄 특성",
+   "en": "closure property",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/union-compatible": {
+   "ko": "합병 가능",
+   "en": "union compatible",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/cartesian-product": {
+   "ko": "카티션 곱",
+   "en": "cartesian product",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/natural-join": {
+   "ko": "자연 조인",
+   "en": "natural join",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/outer-join": {
+   "ko": "외부 조인",
+   "en": "outer join",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/semi-join": {
+   "ko": "세미 조인",
+   "en": "semi join",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/division": {
+   "ko": "디비전",
+   "en": "division",
+   "type": "Term",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:term/relational-calculus": {
+   "ko": "관계 해석",
+   "en": "relational calculus",
+   "type": "Concept",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:work/ahn2025sqlops": {
+   "ko": "SQL 기본 문법 : 연산",
+   "en": "SQL 기본 문법 : 연산",
+   "type": "Work",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:work/ahn2025w06": {
+   "ko": "06주차 : 관계 데이터 연산",
+   "en": "06주차 : 관계 데이터 연산",
+   "type": "Work",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:method/db_w07-fly": {
+   "ko": "σ 먼저, 그다음 ⋈",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:method/db_w07-robo": {
+   "ko": "× 먼저, 그다음 σ",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w07"
+   ]
+  },
+  "lab:topic/db-w08": {
+   "ko": "중간 REVIEW",
+   "en": "Midterm review (weeks 1-7)",
+   "type": "Topic",
+   "pages": [
+    "db_w08",
+    "db_w09",
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-data-database": {
+   "ko": "데이터와 데이터베이스 복습",
+   "en": "review of data and databases",
+   "type": "Concept",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:concept/review-dbms-schema": {
+   "ko": "DBMS와 3단계 구조 복습",
+   "en": "review of dbms and three-schema architecture",
+   "type": "Concept",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:concept/review-er-model": {
+   "ko": "E-R 모델 복습",
+   "en": "review of e-r modeling",
+   "type": "Concept",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:concept/review-relational": {
+   "ko": "관계 모델과 연산 복습",
+   "en": "review of relational model and algebra",
+   "type": "Concept",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:work/ahn2025w08": {
+   "ko": "08주차 : 시험대비 Review",
+   "en": "08주차 : 시험대비 Review",
+   "type": "Work",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:method/db_w08-fly": {
+   "ko": "개념마다 정의 한 줄",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:method/db_w08-robo": {
+   "ko": "정의 + 예시 + 반례 세 줄",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w08"
+   ]
+  },
+  "lab:topic/db-w09": {
+   "ko": "SQL ① 데이터 정의",
+   "en": "SQL data definition (DDL)",
+   "type": "Topic",
+   "pages": [
+    "db_w09",
+    "db_w10"
+   ]
+  },
+  "lab:concept/sql-categories": {
+   "ko": "SQL의 분류",
+   "en": "sql statement categories",
+   "type": "Concept",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:concept/create-table": {
+   "ko": "CREATE TABLE",
+   "en": "create table statement",
+   "type": "Concept",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:concept/referential-actions": {
+   "ko": "참조 무결성 옵션",
+   "en": "referential actions",
+   "type": "Concept",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:concept/alter-drop": {
+   "ko": "ALTER TABLE과 DROP TABLE",
+   "en": "alter and drop table",
+   "type": "Concept",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/data-type": {
+   "ko": "자료형",
+   "en": "data type",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/varchar": {
+   "ko": "VARCHAR",
+   "en": "varchar",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/truncate": {
+   "ko": "TRUNCATE",
+   "en": "truncate",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/not-null": {
+   "ko": "NOT NULL",
+   "en": "not null",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/default": {
+   "ko": "DEFAULT",
+   "en": "default",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/unique": {
+   "ko": "UNIQUE",
+   "en": "unique",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/check-constraint": {
+   "ko": "CHECK",
+   "en": "check constraint",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/utf8mb4": {
+   "ko": "utf8mb4",
+   "en": "utf8mb4",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/cascade": {
+   "ko": "CASCADE",
+   "en": "cascade",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/set-null": {
+   "ko": "SET NULL",
+   "en": "set null",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:term/alter-table": {
+   "ko": "ALTER TABLE",
+   "en": "alter table",
+   "type": "Term",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:work/ahn2025sqlbasic": {
+   "ko": "SQL 기본 문법",
+   "en": "SQL 기본 문법",
+   "type": "Work",
+   "pages": [
+    "db_w09",
+    "db_w10"
+   ]
+  },
+  "lab:work/ahn2025dcltcl": {
+   "ko": "SQL 문법 정리 (DCL, TCL 추가)",
+   "en": "SQL 문법 정리 (DCL, TCL 추가)",
+   "type": "Work",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:method/db_w09-fly": {
+   "ko": "제약 없이 단순한 표 (검사는 화면에서)",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:method/db_w09-robo": {
+   "ko": "NOT NULL · PK · CHECK · 길이 제한 모두",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w09"
+   ]
+  },
+  "lab:topic/db-w10": {
+   "ko": "SQL ② 데이터 조작과 조인",
+   "en": "SQL data manipulation, joins and views",
+   "type": "Topic",
+   "pages": [
+    "db_w10",
+    "db_w11"
+   ]
+  },
+  "lab:concept/select-statement": {
+   "ko": "SELECT 문",
+   "en": "select statement",
+   "type": "Concept",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:concept/aggregation-grouping": {
+   "ko": "집계와 그룹",
+   "en": "aggregation and grouping",
+   "type": "Concept",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:concept/join-subquery": {
+   "ko": "조인 검색과 부속 질의",
+   "en": "joins and subqueries",
+   "type": "Concept",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:concept/dml-view": {
+   "ko": "데이터 변경과 뷰",
+   "en": "data modification and views",
+   "type": "Concept",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/like": {
+   "ko": "LIKE",
+   "en": "like",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/is-null": {
+   "ko": "IS NULL",
+   "en": "is null",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/order-by": {
+   "ko": "ORDER BY",
+   "en": "order by",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/distinct": {
+   "ko": "DISTINCT",
+   "en": "distinct",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/aggregate-function": {
+   "ko": "집계 함수",
+   "en": "aggregate function",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/group-by": {
+   "ko": "GROUP BY",
+   "en": "group by",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/having": {
+   "ko": "HAVING",
+   "en": "having",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/subquery": {
+   "ko": "부속 질의",
+   "en": "subquery",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/join-attribute": {
+   "ko": "조인 속성",
+   "en": "join attribute",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/cursor": {
+   "ko": "커서",
+   "en": "cursor",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:term/embedded-sql": {
+   "ko": "삽입 SQL",
+   "en": "embedded sql",
+   "type": "Term",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:work/mariadbdocs": {
+   "ko": "ORDER BY — MariaDB Documentation",
+   "en": "ORDER BY — MariaDB Documentation",
+   "type": "Work",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:method/db_w10-fly": {
+   "ko": "부속 질의 IN",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:method/db_w10-robo": {
+   "ko": "고객 ⋈ 주문 JOIN",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w10"
+   ]
+  },
+  "lab:topic/db-w11": {
+   "ko": "데이터베이스 설계 5단계",
+   "en": "The database design process",
+   "type": "Topic",
+   "pages": [
+    "db_w11",
+    "db_w12"
+   ]
+  },
+  "lab:concept/requirements-specification": {
+   "ko": "요구 사항 명세",
+   "en": "requirements specification",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:concept/conceptual-design": {
+   "ko": "개념적 설계",
+   "en": "conceptual design",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:concept/er-to-relational-mapping": {
+   "ko": "E-R 다이어그램의 릴레이션 변환",
+   "en": "er to relational mapping",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:concept/physical-design-implementation": {
+   "ko": "물리적 설계와 구현",
+   "en": "physical design and implementation",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:term/requirements-document": {
+   "ko": "요구 사항 명세서",
+   "en": "requirements document",
+   "type": "Term",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:term/conceptual-design-phase": {
+   "ko": "개념적 설계",
+   "en": "conceptual design phase",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:term/logical-design-phase": {
+   "ko": "논리적 설계",
+   "en": "logical design phase",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:term/physical-design-phase": {
+   "ko": "물리적 설계",
+   "en": "physical design phase",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:term/mapping-rules": {
+   "ko": "변환 규칙",
+   "en": "mapping rules",
+   "type": "Concept",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:work/ahn2025w12design": {
+   "ko": "데이터베이스설계 12주차 강의 교안: 데이터베이스 설계",
+   "en": "데이터베이스설계 12주차 강의 교안: 데이터베이스 설계",
+   "type": "Work",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:method/db_w11-fly": {
+   "ko": "5단계를 거친 뒤 한 번에 생성",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:method/db_w11-robo": {
+   "ko": "문장마다 바로 CREATE · ALTER",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w11"
+   ]
+  },
+  "lab:topic/db-w12": {
+   "ko": "정규화",
+   "en": "Normalization",
+   "type": "Topic",
+   "pages": [
+    "db_w12",
+    "db_w13"
+   ]
+  },
+  "lab:concept/anomalies": {
+   "ko": "이상 현상",
+   "en": "anomalies",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:concept/functional-dependency": {
+   "ko": "함수 종속",
+   "en": "functional dependency",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:concept/1nf-2nf": {
+   "ko": "제1·제2정규형",
+   "en": "first and second normal form",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:concept/3nf-bcnf": {
+   "ko": "제3정규형과 BCNF",
+   "en": "third normal form and bcnf",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/insertion-anomaly": {
+   "ko": "삽입 이상",
+   "en": "insertion anomaly",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/update-anomaly": {
+   "ko": "갱신 이상",
+   "en": "update anomaly",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/deletion-anomaly": {
+   "ko": "삭제 이상",
+   "en": "deletion anomaly",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/determinant": {
+   "ko": "결정자",
+   "en": "determinant",
+   "type": "Term",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/partial-dependency": {
+   "ko": "부분 함수 종속",
+   "en": "partial dependency",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/transitive-dependency": {
+   "ko": "이행 함수 종속",
+   "en": "transitive dependency",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/first-normal-form": {
+   "ko": "제1정규형",
+   "en": "first normal form",
+   "type": "Term",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/second-normal-form": {
+   "ko": "제2정규형",
+   "en": "second normal form",
+   "type": "Term",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/bcnf": {
+   "ko": "BCNF",
+   "en": "bcnf",
+   "type": "Term",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/lossless-decomposition": {
+   "ko": "무손실 분해",
+   "en": "lossless decomposition",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:term/denormalization": {
+   "ko": "반정규화",
+   "en": "denormalization",
+   "type": "Concept",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:method/db_w12-fly": {
+   "ko": "3NF — 회원 정보는 회원 표에 한 번",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:method/db_w12-robo": {
+   "ko": "반정규화 — 대출 표에 회원 정보도 저장",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w12"
+   ]
+  },
+  "lab:topic/db-w13": {
+   "ko": "트랜잭션 · 회복 · 병행 제어",
+   "en": "Transactions, recovery and concurrency control",
+   "type": "Topic",
+   "pages": [
+    "db_w13",
+    "db_w14"
+   ]
+  },
+  "lab:concept/transaction-acid": {
+   "ko": "트랜잭션과 ACID",
+   "en": "transaction and acid",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:concept/tcl": {
+   "ko": "트랜잭션 제어어",
+   "en": "transaction control language",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:concept/log-based-recovery": {
+   "ko": "로그 기반 회복",
+   "en": "log-based recovery",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:concept/concurrency-locking": {
+   "ko": "병행 제어와 로킹",
+   "en": "concurrency control and locking",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/transaction-unit": {
+   "ko": "트랜잭션",
+   "en": "transaction unit",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/atomicity": {
+   "ko": "원자성",
+   "en": "atomicity",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/isolation": {
+   "ko": "격리성",
+   "en": "isolation",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/durability": {
+   "ko": "지속성",
+   "en": "durability",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/log": {
+   "ko": "로그",
+   "en": "log",
+   "type": "Term",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/checkpoint": {
+   "ko": "검사 시점",
+   "en": "checkpoint",
+   "type": "Term",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/lost-update": {
+   "ko": "갱신 분실",
+   "en": "lost update",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/deadlock": {
+   "ko": "교착 상태",
+   "en": "deadlock",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:term/two-phase-locking": {
+   "ko": "2단계 로킹",
+   "en": "two phase locking",
+   "type": "Concept",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:work/ahn2025sqltcl": {
+   "ko": "SQL 문법 정리 (DCL, TCL 추가)",
+   "en": "SQL 문법 정리 (DCL, TCL 추가)",
+   "type": "Work",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:method/db_w13-fly": {
+   "ko": "로킹 — 기다렸다가 처리",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:method/db_w13-robo": {
+   "ko": "잠금 없이 바로 처리",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w13"
+   ]
+  },
+  "lab:topic/db-w14": {
+   "ko": "데이터베이스 응용 기술",
+   "en": "Database application technologies",
+   "type": "Topic",
+   "pages": [
+    "db_w14",
+    "db_w15"
+   ]
+  },
+  "lab:concept/unstructured-big-data": {
+   "ko": "비정형 데이터와 빅데이터",
+   "en": "unstructured data and big data",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:concept/relational-vs-document": {
+   "ko": "관계형 모델과 문서형 모델",
+   "en": "relational vs document model",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:concept/index-performance": {
+   "ko": "색인과 조회 성능",
+   "en": "index and query performance",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:concept/oltp-olap": {
+   "ko": "OLTP와 OLAP",
+   "en": "oltp and olap",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/big-data": {
+   "ko": "빅데이터",
+   "en": "big data",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/newsql": {
+   "ko": "NewSQL",
+   "en": "newsql",
+   "type": "Term",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/document-database": {
+   "ko": "문서형 데이터베이스",
+   "en": "document database",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/full-scan": {
+   "ko": "전체 스캔",
+   "en": "full scan",
+   "type": "Term",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/oltp": {
+   "ko": "OLTP",
+   "en": "oltp",
+   "type": "Term",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/olap": {
+   "ko": "OLAP",
+   "en": "olap",
+   "type": "Term",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:term/data-warehouse": {
+   "ko": "데이터 웨어하우스",
+   "en": "data warehouse",
+   "type": "Concept",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:work/ahn2025w0104": {
+   "ko": "데이터베이스 설계 1~4주차 강의 교안 (데이터베이스 관리시스템 발전 과정)",
+   "en": "데이터베이스 설계 1~4주차 강의 교안 (데이터베이스 관리시스템 발전 과정)",
+   "type": "Work",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:work/ahn2025notion13": {
+   "ko": "13주차 : 데이터 베이스 응용기술",
+   "en": "13주차 : 데이터 베이스 응용기술",
+   "type": "Work",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:method/db_w14-fly": {
+   "ko": "정규화된 표 3개 + JOIN",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:method/db_w14-robo": {
+   "ko": "문서형 — 글 안에 태그 배열",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w14"
+   ]
+  },
+  "lab:topic/db-w15": {
+   "ko": "기말 REVIEW",
+   "en": "Final review (weeks 9-14)",
+   "type": "Topic",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-sql": {
+   "ko": "SQL 복습",
+   "en": "review of sql",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-design": {
+   "ko": "설계 5단계 복습",
+   "en": "review of database design",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-normalization": {
+   "ko": "정규화 복습",
+   "en": "review of normalization",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:concept/review-transaction-application": {
+   "ko": "트랜잭션과 응용 기술 복습",
+   "en": "review of transactions and applications",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/having-clause": {
+   "ko": "HAVING",
+   "en": "having clause",
+   "type": "Term",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/on-delete-cascade": {
+   "ko": "CASCADE",
+   "en": "on delete cascade",
+   "type": "Term",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/mapping-rules-review": {
+   "ko": "변환 규칙",
+   "en": "mapping rules review",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/functional-dependency-review": {
+   "ko": "함수 종속",
+   "en": "functional dependency review",
+   "type": "Concept",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/redo": {
+   "ko": "REDO",
+   "en": "redo",
+   "type": "Term",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:term/undo": {
+   "ko": "UNDO",
+   "en": "undo",
+   "type": "Term",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:work/ahn2025w15": {
+   "ko": "15주차 : 기말고사",
+   "en": "15주차 : 기말고사",
+   "type": "Work",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:method/db_w15-fly": {
+   "ko": "단계별 — 1NF → 2NF → 3NF",
+   "en": "option A (fly)",
+   "type": "Method",
+   "pages": [
+    "db_w15"
+   ]
+  },
+  "lab:method/db_w15-robo": {
+   "ko": "결정자로 한 번에 묶기",
+   "en": "option B (jupanbot)",
+   "type": "Method",
+   "pages": [
+    "db_w15"
+   ]
+  }
+ }
+}
