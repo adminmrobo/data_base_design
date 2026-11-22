@@ -1,148 +1,90 @@
 {
- "schema": "ahnboat-cover-manifest/1",
- "repo": "adminmrobo/data_base_design",
- "title": "데이터베이스 설계 연구실 — 데이터베이스 설계 15회차",
- "site": "https://adminmrobo.github.io/data_base_design/",
- "updated": "2026-11-20",
- "author": "안상선",
- "characters": [
-  "doc",
-  "asst",
-  "fly",
-  "jupanbot"
- ],
- "robot": "jupanbot-v2",
- "items": [
-  {
-   "key": "cover_index",
-   "page": "index.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_index"
-  },
-  {
-   "key": "cover_01",
-   "page": "weeks/w01_course_guide.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_01"
-  },
-  {
-   "key": "cover_02",
-   "page": "weeks/w02_data_and_database.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_02"
-  },
-  {
-   "key": "cover_03",
-   "page": "weeks/w03_dbms.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_03"
-  },
-  {
-   "key": "cover_04",
-   "page": "weeks/w04_database_system.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_04"
-  },
-  {
-   "key": "cover_05",
-   "page": "weeks/w05_er_modeling.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_05"
-  },
-  {
-   "key": "cover_06",
-   "page": "weeks/w06_relational_model.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_06"
-  },
-  {
-   "key": "cover_07",
-   "page": "weeks/w07_relational_operations.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_07"
-  },
-  {
-   "key": "cover_08",
-   "page": "weeks/w08_midterm_review.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_08"
-  },
-  {
-   "key": "cover_09",
-   "page": "weeks/w09_sql_ddl.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_09"
-  },
-  {
-   "key": "cover_10",
-   "page": "weeks/w10_sql_dml.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_10"
-  },
-  {
-   "key": "cover_11",
-   "page": "weeks/w11_database_design_process.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_11"
-  },
-  {
-   "key": "cover_12",
-   "page": "weeks/w12_normalization.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_12"
-  },
-  {
-   "key": "cover_13",
-   "page": "weeks/w13_transaction_recovery_concurrency.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_13"
-  },
-  {
-   "key": "cover_14",
-   "page": "weeks/w14_database_applications.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_14"
-  },
-  {
-   "key": "cover_15",
-   "page": "weeks/w15_final_review.html",
-   "kind": "cover",
-   "status": "placeholder",
-   "prompt": "docs/COVER_PROMPTS_data_base_design.md#cover_15"
-  }
- ],
+ "series_ko": "데이터베이스 설계 연구실",
+ "title_ko": "데이터베이스 설계 15회차 (중간·기말 REVIEW 포함)",
+ "site_url": "https://adminmrobo.github.io/data_base_design/",
+ "site_title": "데이터베이스 설계 연구실",
  "ontology": {
   "pages": [
-   "weeks/w01_course_guide.html",
-   "weeks/w02_data_and_database.html",
-   "weeks/w03_dbms.html",
-   "weeks/w04_database_system.html",
-   "weeks/w05_er_modeling.html",
-   "weeks/w06_relational_model.html",
-   "weeks/w07_relational_operations.html",
-   "weeks/w08_midterm_review.html",
-   "weeks/w09_sql_ddl.html",
-   "weeks/w10_sql_dml.html",
-   "weeks/w11_database_design_process.html",
-   "weeks/w12_normalization.html",
-   "weeks/w13_transaction_recovery_concurrency.html",
-   "weeks/w14_database_applications.html",
-   "weeks/w15_final_review.html"
+   {
+    "path": "index.html",
+    "kg": false,
+    "export": false
+   },
+   {
+    "path": "weeks/w01_course_guide.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w02_data_and_database.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w03_dbms.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w04_database_system.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w05_er_modeling.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w06_relational_model.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w07_relational_operations.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w08_midterm_review.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w09_sql_ddl.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w10_sql_dml.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w11_database_design_process.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w12_normalization.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w13_transaction_recovery_concurrency.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w14_database_applications.html",
+    "kg": true,
+    "export": true
+   },
+   {
+    "path": "weeks/w15_final_review.html",
+    "kg": true,
+    "export": true
+   }
   ],
   "registry": "data/KG_00_registry.json"
  },
@@ -150,8 +92,688 @@
   "langs": [
    "ko"
   ],
-  "pages": {}
+  "pages": {
+   "ko": 16
+  },
+  "readme_langs": [
+   "ko"
+  ]
  },
+ "items": [
+  {
+   "id": "cover_index",
+   "role": "cover",
+   "path": "assets/img/cover_index.webp",
+   "page": "index.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a long bright corridor of the lab with fifteen identical doors in a row, two of the doors painted mint green, a big blank map of circles and lines on the wall, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a long bright corridor of the lab with fifteen identical doors in a row, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the blank wall map.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 85.0,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_index_960",
+   "role": "cover",
+   "path": "assets/img/cover_index_960.webp",
+   "page": "index.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_index",
+   "status": "ok"
+  },
+  {
+   "id": "cover_01",
+   "role": "cover",
+   "path": "assets/img/cover_01.webp",
+   "page": "weeks/w01_course_guide.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a giant transparent shopping app screen standing in the lab, behind it a neat cabinet of labeled-less drawers glowing softly, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a giant transparent shopping app screen standing in the lab, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the drawer cabinet.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 94.5,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_01_960",
+   "role": "cover",
+   "path": "assets/img/cover_01_960.webp",
+   "page": "weeks/w01_course_guide.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_01",
+   "status": "ok"
+  },
+  {
+   "id": "cover_02",
+   "role": "cover",
+   "path": "assets/img/cover_02.webp",
+   "page": "weeks/w02_data_and_database.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a storage room with raw unlabeled crates on one side and tidy shelves on the other, a brass scale between them, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a storage room with raw unlabeled crates on one side and tidy shelves on the other, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the brass scale.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 109.7,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_02_960",
+   "role": "cover",
+   "path": "assets/img/cover_02_960.webp",
+   "page": "weeks/w02_data_and_database.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_02",
+   "status": "ok"
+  },
+  {
+   "id": "cover_03",
+   "role": "cover",
+   "path": "assets/img/cover_03.webp",
+   "page": "weeks/w03_dbms.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a vault room with an old filing cabinet overflowing with copies on the left and a round vault door with a small control panel on the right, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a vault room with an old filing cabinet overflowing with copies on the left and a round vault door with a small control panel on the right, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the round vault door.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 92.0,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_03_960",
+   "role": "cover",
+   "path": "assets/img/cover_03_960.webp",
+   "page": "weeks/w03_dbms.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_03",
+   "status": "ok"
+  },
+  {
+   "id": "cover_04",
+   "role": "cover",
+   "path": "assets/img/cover_04.webp",
+   "page": "weeks/w04_database_system.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a transparent three-story building model on a lab table, each floor a different pastel color, small staircases linking the floors, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a transparent three-story building model on a lab table, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the middle floor of the model.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 101.7,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_04_960",
+   "role": "cover",
+   "path": "assets/img/cover_04_960.webp",
+   "page": "weeks/w04_database_system.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_04",
+   "status": "ok"
+  },
+  {
+   "id": "cover_05",
+   "role": "cover",
+   "path": "assets/img/cover_05.webp",
+   "page": "weeks/w05_er_modeling.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a library design room, wooden blocks shaped as rectangles, ovals and diamonds on a big table connected by colored strings, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a library design room, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the diamond block.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 93.7,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_05_960",
+   "role": "cover",
+   "path": "assets/img/cover_05_960.webp",
+   "page": "weeks/w05_er_modeling.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_05",
+   "status": "ok"
+  },
+  {
+   "id": "cover_06",
+   "role": "cover",
+   "path": "assets/img/cover_06.webp",
+   "page": "weeks/w06_relational_model.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a wall key cabinet shaped like a grid table, each slot holding a differently shaped key, a few keys connected by thin ribbons to another cabinet, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a wall key cabinet shaped like a grid table, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the glowing key.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 98.7,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_06_960",
+   "role": "cover",
+   "path": "assets/img/cover_06_960.webp",
+   "page": "weeks/w06_relational_model.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_06",
+   "status": "ok"
+  },
+  {
+   "id": "cover_07",
+   "role": "cover",
+   "path": "assets/img/cover_07.webp",
+   "page": "weeks/w07_relational_operations.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a lab bench with a sieve sorting colored cards, two stacks of cards being zipped together by a small gear machine, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a lab bench with a sieve sorting colored cards, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the sieve.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 103.6,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_07_960",
+   "role": "cover",
+   "path": "assets/img/cover_07_960.webp",
+   "page": "weeks/w07_relational_operations.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_07",
+   "status": "ok"
+  },
+  {
+   "id": "cover_08",
+   "role": "cover",
+   "path": "assets/img/cover_08.webp",
+   "page": "weeks/w08_midterm_review.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a mint green door wide open in the middle of the corridor, inside a small room with seven framed blank maps on the wall, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a mint green door wide open in the middle of the corridor, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the seven maps.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 77.5,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_08_960",
+   "role": "cover",
+   "path": "assets/img/cover_08_960.webp",
+   "page": "weeks/w08_midterm_review.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_08",
+   "status": "ok"
+  },
+  {
+   "id": "cover_09",
+   "role": "cover",
+   "path": "assets/img/cover_09.webp",
+   "page": "weeks/w09_sql_ddl.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a workshop corner where empty display shelves are being built, small stamping tools carving grooves into the shelf frames, a blank rulebook stand, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a workshop corner where empty display shelves are being built, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the carved shelf frame.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 100.4,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_09_960",
+   "role": "cover",
+   "path": "assets/img/cover_09_960.webp",
+   "page": "weeks/w09_sql_ddl.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_09",
+   "status": "ok"
+  },
+  {
+   "id": "cover_10",
+   "role": "cover",
+   "path": "assets/img/cover_10.webp",
+   "page": "weeks/w10_sql_dml.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a bright market storeroom, labeled-less boxes being picked from shelves into baskets, some boxes grouped with ribbons, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a bright market storeroom, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the ribbon-grouped boxes.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 106.8,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_10_960",
+   "role": "cover",
+   "path": "assets/img/cover_10_960.webp",
+   "page": "weeks/w10_sql_dml.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_10",
+   "status": "ok"
+  },
+  {
+   "id": "cover_11",
+   "role": "cover",
+   "path": "assets/img/cover_11.webp",
+   "page": "weeks/w11_database_design_process.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a design studio with five tables in a row: a pile of sticky notes, a sketch of boxes and diamonds, a blueprint, a material sample board, a finished small cabinet model, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a design studio with five tables in a row: a pile of sticky notes, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the row of five tables.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 93.1,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_11_960",
+   "role": "cover",
+   "path": "assets/img/cover_11_960.webp",
+   "page": "weeks/w11_database_design_process.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_11",
+   "status": "ok"
+  },
+  {
+   "id": "cover_12",
+   "role": "cover",
+   "path": "assets/img/cover_12.webp",
+   "page": "weeks/w12_normalization.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a cutting table with one huge messy ledger sheet being cut by big scissors into four neat cards, a dotted line showing they still fit back together, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a cutting table with one huge messy ledger sheet being cut by big scissors into four neat cards, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the scissors and dotted line.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 89.2,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_12_960",
+   "role": "cover",
+   "path": "assets/img/cover_12_960.webp",
+   "page": "weeks/w12_normalization.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_12",
+   "status": "ok"
+  },
+  {
+   "id": "cover_13",
+   "role": "cover",
+   "path": "assets/img/cover_13.webp",
+   "page": "weeks/w13_transaction_recovery_concurrency.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a small bank counter with two windows sharing one round vault, a key hook beside one window, an open logbook on a stand, a few coins on the counter, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a small bank counter with two windows sharing one round vault, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the shared vault.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 93.5,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_13_960",
+   "role": "cover",
+   "path": "assets/img/cover_13_960.webp",
+   "page": "weeks/w13_transaction_recovery_concurrency.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_13",
+   "status": "ok"
+  },
+  {
+   "id": "cover_14",
+   "role": "cover",
+   "path": "assets/img/cover_14.webp",
+   "page": "weeks/w14_database_applications.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: a mail sorting room with a bookcase of binders, a pile of envelopes with blank colorful stickers, boxes of photos, a small index card drawer, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: a mail sorting room with a bookcase of binders, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the envelope pile.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 108.1,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_14_960",
+   "role": "cover",
+   "path": "assets/img/cover_14_960.webp",
+   "page": "weeks/w14_database_applications.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_14",
+   "status": "ok"
+  },
+  {
+   "id": "cover_15",
+   "role": "cover",
+   "path": "assets/img/cover_15.webp",
+   "page": "weeks/w15_final_review.html",
+   "size": [
+    1600,
+    900
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": "Website top cover illustration, wide 16:9.\nArt style (required, always): 16-bit RPG style pixel art with clearly visible square pixels, limited palette, bold dark outline,\n  2–3 tone shading, small highlights; no smooth gradients, no painterly, vector, watercolor or 3D look.\nMatch the characters' proportions and colors of the attached reference images exactly, drawn in this same pixel-art style.\nbright daytime laboratory mood, soft natural sunlight through large windows, clean white walls, light lavender, mint and pink accents.\nScene: the second mint green door at the end of the corridor, inside a room with six framed blank maps and a graduation cap on a stand, rendered as part of the same bright daytime lab world, a few lavender lab items on one side.\nAll four characters together:\n  the chibi scientist, thin teal rectangular glasses, spiky black hair with one white streak, small ponytail at the back, white lab coat over black vest and tie, at the back center;\n  the girl researcher, long pink hair with two round buns and a navy streak, blue eyes, white lab coat over lavender hoodie, jeans, at one side;\n  the anthropomorphic fruit fly researcher, black body, big red compound eyes, blue helmet with a gold stripe and pink and blue cables, white lab coat over a black vest, black gloves, transparent wings, on the left facing right;\n  the boxy beige retro CRT-monitor robot, dark green screen face with mint pixel eyes and mouth, short antenna topped with a red-brown abacus bead, gray segmented arms, two small tank treads, on the right facing left.\nVisual metaphor of the topic: the second mint green door at the end of the corridor, no writing anywhere.\nComposition: keep every face and hand inside the central safe area (12% margin left and right, 10% top, 18% bottom);\n  keep the bottom-left corner plain, bright and simple; the light falls on the six maps.\nMood: curious, friendly rivalry, the moment before the result.\nNo text, no letters, no numbers, no logos, no weapons, no cigarettes, no alcohol, no blood, no real brands.",
+   "source_of": null,
+   "status": "ok",
+   "kb": 80.1,
+   "received": "2026-11-22"
+  },
+  {
+   "id": "cover_15_960",
+   "role": "cover",
+   "path": "assets/img/cover_15_960.webp",
+   "page": "weeks/w15_final_review.html",
+   "size": [
+    960,
+    540
+   ],
+   "characters": [
+    "doc",
+    "asst",
+    "fly",
+    "jupanbot"
+   ],
+   "robot": "jupanbot-v2",
+   "prompt_en": null,
+   "source_of": "cover_15",
+   "status": "ok"
+  }
+ ],
+ "updated": "2026-11-22",
  "archive": {
   "from": "adminmrobo/database_01of04",
   "path": "archive/database_01of04/",

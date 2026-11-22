@@ -12,7 +12,8 @@ PACK = os.environ.get('LAB_PACK', os.path.join(HERE, 'sprites'))
 CSS = open(os.path.join(HERE, 'lab.css'), encoding='utf-8').read()
 JS = open(os.path.join(HERE, 'minisql.js'), encoding='utf-8').read() + '\n' + open(os.path.join(HERE, 'lab.js'), encoding='utf-8').read()
 KGX = open(os.path.join(HERE, 'kgx.js'), encoding='utf-8').read()
-TODAY = '2026-11-20'
+TODAY = '2026-11-22'
+COVER_RECEIVED = '2026-11-22'
 SITE = 'https://adminmrobo.github.io/data_base_design/'
 REPO = 'https://github.com/adminmrobo/data_base_design'
 NOTION = 'https://mrobo2016.notion.site/'
@@ -189,7 +190,31 @@ def jsonld(kg, meta):
 def esc_json(o):
     return json.dumps(o, ensure_ascii=False).replace('</', '<\\/')
 
+_ALT = None
+def cover_alt(key, alt):
+    global _ALT
+    if _ALT is None:
+        import re as _r
+        _ALT = {}
+        p = os.path.join(ROOT, 'docs', 'COVER_PROMPTS_data_base_design.md')
+        if os.path.exists(p):
+            for m in _r.finditer(r'<a id="(cover_\w+)"></a>.*?\| 대체 글 \(alt\) \| (.*?) \|', open(p, encoding='utf-8').read(), _r.S):
+                _ALT[m.group(1)] = m.group(2).strip()
+    return _ALT.get(key, alt)
+
+def cover_img(key, alt, pre):
+    alt = cover_alt(key, alt)
+    f = os.path.join(ROOT, 'assets', 'img', key + '.webp')
+    if not os.path.exists(f):
+        return None
+    return ('<img class="cover-img" src="%sassets/img/%s.webp" srcset="%sassets/img/%s_960.webp 960w, %sassets/img/%s.webp 1600w" '
+            'sizes="100vw" width="1600" height="900" alt="%s" fetchpriority="high" decoding="async">') % (pre, key, pre, key, pre, key, E(alt))
+
 def cover(P, strip=False):
+    im = cover_img('cover_%s' % P['num'], P['cover_alt'], '../')
+    if im:
+        return ('<!-- lab-cover --><header class="cover has-img%s" id="cover" data-img="cover_%s">%s'
+                '<span class="cover-chip">%s · %s</span></header><!-- /lab-cover -->') % (' cover-strip' if strip else '', P['num'], im, SERIES, P['chip'])
     import pixel_cover
     prop = pixel_cover.scene(P['num'])
     shelf = ''.join(face(w, m, 128) for w, m in (('fly', 'point'), ('asst', 'smile'), ('doc', 'front'), ('robo', 'coin')))
@@ -330,7 +355,7 @@ def page_html(P, prev, nxt, fname):
     doc = '''<!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>%s — %s · %s</title>%s
-<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:url" content="%s">
+<meta property="og:title" content="%s"><meta property="og:type" content="article"><meta property="og:url" content="%s"><meta property="og:image" content="__OGIMG__">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>%s%s</style></head>
@@ -348,7 +373,7 @@ var PAGE={init:function(LAB){%s}};
 <script>%s</script>
 </body></html>''' % (P['title'], P['subtitle'], SERIES, head_meta, E(meta['title']), url, CSS, P.get('css', ''), body,
                      esc_json(kg), esc_json(jsonld(kg, meta)), esc_json(refs), esc_json(meta), data_js, duel_js, P.get('js', '') + '\n;(function(){' + P.get('practice', {}).get('js', '') + '})();', JS, KGX)
-    return doc, kg
+    return doc.replace("__OGIMG__", SITE + "assets/img/cover_%s.webp" % P["num"]), kg
 
 # ── 목차 ─────────────────────────────────────────────────
 def index_html(pages, IDX):
@@ -361,6 +386,10 @@ def index_html(pages, IDX):
     shelf = ''.join(face(w, m, 128) for w, m in (('fly', 'point'), ('asst', 'proud'), ('doc', 'front'), ('robo', 'smile')))
     cov = ('<!-- lab-cover --><header class="cover" id="cover" data-img="cover_index" role="img" aria-label="%s">%s<div class="shelf">%s</div>'
            '<span class="cover-chip">%s · 목차</span></header><!-- /lab-cover -->') % (E(IDX['cover_alt']), __import__('pixel_cover').scene('00'), shelf, SERIES)
+    _im = cover_img('cover_index', IDX['cover_alt'], '')
+    if _im:
+        cov = ('<!-- lab-cover --><header class="cover has-img" id="cover" data-img="cover_index">%s'
+               '<span class="cover-chip">%s · 목차</span></header><!-- /lab-cover -->') % (_im, SERIES)
     keys = set(re.findall(r'data-who="(\w+)" data-mood="(\w+)"', body + cov + ''.join(cards)))
     sprites = {}
     for k in sorted({'%s_%s' % k for k in keys}):
@@ -370,7 +399,7 @@ def index_html(pages, IDX):
     return '''<!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>%s — 데이터베이스 설계 15회차 연구실 해설</title><meta name="description" content="%s">
-<meta property="og:title" content="%s"><meta property="og:url" content="%s">
+<meta property="og:title" content="%s"><meta property="og:url" content="%s"><meta property="og:image" content="__OGIDX__">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>%s</style></head><body><div id="prog"></div><div id="tip"></div>
@@ -411,16 +440,34 @@ def main():
         report.append('%s %-34s %6.0f KB  nodes %3d edges %3d quiz %2d' % (P['num'], fn, len(doc.encode()) / 1024, len(kg['nodes']), len(kg['edges']), nq))
     IDX = {}
     exec(open(os.path.join(HERE, 'pages', 'index.py'), encoding='utf-8').read(), {'face': face, 'say': say, 'NOTION': NOTION, 'E': E, 'IDX': IDX})
-    open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(index_html(pages, IDX))
+    open(os.path.join(ROOT, 'index.html'), 'w', encoding='utf-8').write(index_html(pages, IDX).replace('__OGIDX__', SITE + 'assets/img/cover_index.webp'))
     os.makedirs(os.path.join(ROOT, 'data'), exist_ok=True)
     json.dump(registry, open(os.path.join(ROOT, 'data', 'KG_00_registry.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     # 표지 목록 (현황판 연결, 스킬 18-16)
-    man = {'schema': 'ahnboat-cover-manifest/1', 'repo': 'adminmrobo/data_base_design', 'title': SERIES + ' — 데이터베이스 설계 15회차', 'site': SITE,
-           'updated': TODAY, 'author': AUTHOR, 'characters': ['doc', 'asst', 'fly', 'jupanbot'], 'robot': 'jupanbot-v2',
-           'items': [{'key': 'cover_index', 'page': 'index.html', 'kind': 'cover', 'status': 'placeholder', 'prompt': 'docs/COVER_PROMPTS_data_base_design.md#cover_index'}] +
-                    [{'key': 'cover_%s' % P['num'], 'page': 'weeks/' + fn, 'kind': 'cover', 'status': 'placeholder', 'prompt': 'docs/COVER_PROMPTS_data_base_design.md#cover_%s' % P['num']} for P, fn in pages],
-           'ontology': {'pages': ['weeks/' + fn for P, fn in pages], 'registry': 'data/KG_00_registry.json'},
-           'i18n': {'langs': ['ko'], 'pages': {}}, 'archive': {'from': 'adminmrobo/database_01of04', 'path': 'archive/database_01of04/', 'status': 'archived'}}
+    import re as _re
+    _pr = {}
+    _cp = os.path.join(ROOT, 'docs', 'COVER_PROMPTS_data_base_design.md')
+    if os.path.exists(_cp):
+        for _m in _re.finditer(r'<a id="(cover_\w+)"></a>.*?아래 영어 프롬프트를 그대로 써 줘\.\n\n(.*?)\n```', open(_cp, encoding='utf-8').read(), _re.S):
+            _pr[_m.group(1)] = _m.group(2).strip()
+    def _item(key, page):
+        f = os.path.join(ROOT, 'assets', 'img', key + '.webp'); ok = os.path.exists(f)
+        it = {'id': key, 'role': 'cover', 'path': 'assets/img/%s.webp' % key if ok else None, 'page': page, 'size': [1600, 900],
+              'characters': ['doc', 'asst', 'fly', 'jupanbot'], 'robot': 'jupanbot-v2' if ok else 'none', 'prompt_en': _pr.get(key),
+              'source_of': None, 'status': 'ok' if ok else 'redraw'}
+        if ok:
+            it['kb'] = round(os.path.getsize(f) / 1024, 1); it['received'] = COVER_RECEIVED
+        return [it] + ([{'id': key + '_960', 'role': 'cover', 'path': 'assets/img/%s_960.webp' % key, 'page': page, 'size': [960, 540],
+                         'characters': ['doc', 'asst', 'fly', 'jupanbot'], 'robot': 'jupanbot-v2', 'prompt_en': None, 'source_of': key, 'status': 'ok'}] if ok else [])
+    items = _item('cover_index', 'index.html')
+    for P, fn in pages:
+        items += _item('cover_%s' % P['num'], 'weeks/' + fn)
+    man = {'series_ko': SERIES, 'title_ko': '데이터베이스 설계 15회차 (중간·기말 REVIEW 포함)', 'site_url': SITE, 'site_title': SERIES,
+           'ontology': {'pages': [{'path': 'index.html', 'kg': False, 'export': False}] + [{'path': 'weeks/' + fn, 'kg': True, 'export': True} for P, fn in pages],
+                        'registry': 'data/KG_00_registry.json'},
+           'i18n': {'langs': ['ko'], 'pages': {'ko': len(pages) + 1}, 'readme_langs': ['ko']},
+           'items': items, 'updated': TODAY,
+           'archive': {'from': 'adminmrobo/database_01of04', 'path': 'archive/database_01of04/', 'status': 'archived'}}
     json.dump(man, open(os.path.join(ROOT, 'cover_manifest.json'), 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print('\n'.join(report))
 

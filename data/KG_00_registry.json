@@ -1,7 +1,7 @@
 {
  "version": "1.0",
  "series": "데이터베이스 설계 연구실",
- "updated": "2026-11-20",
+ "updated": "2026-11-22",
  "domain": "db",
  "ids": {
   "lab:topic/db-w01": {

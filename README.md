@@ -42,7 +42,8 @@ SQL 실습은 노션 실습 페이지의 예제를 **설치 없이 브라우저 
 index.html                  첫 화면 (15회차 목차, 도구 안내, 보관함)
 weeks/w01~w15_*.html        회차 페이지 (단일 파일)
 data/KG_00_registry.json    시리즈 지식 그래프 등록부
-cover_manifest.json         표지 그림 현황 (지금은 모두 대체 그림)
+cover_manifest.json         표지 그림 현황 (16장 모두 반영, 2026-11-22)
+assets/img/                 표지 WebP (1600·960) · src/ 원본 PNG
 docs/
   COVER_PROMPTS_data_base_design.md   표지 16장 생성 지시문
   REVIEW_supoja_persona.md            수포자 기준(P1~P7)·페르소나 감사 보고서
