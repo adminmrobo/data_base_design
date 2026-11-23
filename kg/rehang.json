@@ -1,0 +1,251 @@
+{
+ "version": "1.0",
+ "made": "2026-11-24",
+ "via": "rehang-2026-11-24",
+ "domains": [
+  "data"
+ ],
+ "note": "분야 뼈대 주제에 다시 걸기(ai-lab-retrofit 15장). links는 자동 후보이며 틀린 줄은 지우면 된다. 빌드 스크립트가 있는 저장소는 빌드 끝에 rehang.apply_overlay()가 이 파일을 적용한다.",
+ "topics": {
+  "lab:topic/document-kv-stores": {
+   "ko": "문서·키-값 저장소",
+   "en": "Document and key–value stores",
+   "domain": [
+    "data"
+   ],
+   "level": 3
+  },
+  "lab:topic/entity-relationship": {
+   "ko": "개체-관계 모형(ERD)",
+   "en": "Entity–relationship modeling",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  },
+  "lab:topic/keys-constraints": {
+   "ko": "키와 제약조건",
+   "en": "Keys and constraints",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  },
+  "lab:topic/normalization-db": {
+   "ko": "정규화",
+   "en": "Normalization",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  },
+  "lab:topic/relational-model": {
+   "ko": "관계 모형",
+   "en": "Relational model",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  },
+  "lab:topic/sql": {
+   "ko": "SQL",
+   "en": "SQL",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  },
+  "lab:topic/transactions": {
+   "ko": "트랜잭션과 ACID",
+   "en": "Transactions and ACID",
+   "domain": [
+    "data"
+   ],
+   "level": 1
+  }
+ },
+ "links": {
+  "lab:concept/data-dependency": {
+   "topic": "lab:topic/normalization-db",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터 종속성"
+  },
+  "lab:concept/data-redundancy": {
+   "topic": "lab:topic/normalization-db",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터 중복"
+  },
+  "lab:concept/database": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터베이스"
+  },
+  "lab:concept/dbms": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터베이스 관리 시스템"
+  },
+  "lab:concept/rollback": {
+   "topic": "lab:topic/transactions",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "회복과 롤백"
+  },
+  "lab:concept/spreadsheet-vs-database": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "스프레드시트와 데이터베이스의 차이"
+  },
+  "lab:term/constraint": {
+   "topic": "lab:topic/keys-constraints",
+   "score": 2,
+   "why": "개념 이름이 주제 이름에 들어 있음",
+   "ko": "제약 조건"
+  },
+  "lab:term/data-dependency": {
+   "topic": "lab:topic/normalization-db",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "종속성"
+  },
+  "lab:term/data-redundancy": {
+   "topic": "lab:topic/normalization-db",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터 중복"
+  },
+  "lab:term/database": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "데이터베이스"
+  },
+  "lab:term/dbms": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "DBMS"
+  },
+  "lab:term/dcl": {
+   "topic": "lab:topic/sql",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "DCL"
+  },
+  "lab:term/ddl": {
+   "topic": "lab:topic/sql",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "DDL"
+  },
+  "lab:term/denormalization": {
+   "topic": "lab:topic/normalization-db",
+   "score": 2,
+   "why": "주제 이름이 개념 이름에 들어 있음",
+   "ko": "반정규화"
+  },
+  "lab:term/dml": {
+   "topic": "lab:topic/sql",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "DML"
+  },
+  "lab:term/embedded-sql": {
+   "topic": "lab:topic/sql",
+   "score": 2,
+   "why": "주제 이름이 개념 이름에 들어 있음",
+   "ko": "삽입 SQL"
+  },
+  "lab:term/entity": {
+   "topic": "lab:topic/entity-relationship",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "개체"
+  },
+  "lab:term/inconsistency": {
+   "topic": "lab:topic/normalization-db",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "불일치"
+  },
+  "lab:term/index": {
+   "topic": "lab:topic/keys-constraints",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "색인"
+  },
+  "lab:term/journal-log": {
+   "topic": "lab:topic/transactions",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "저널"
+  },
+  "lab:term/newsql": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "NewSQL"
+  },
+  "lab:term/nosql": {
+   "topic": "lab:topic/document-kv-stores",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "NoSQL"
+  },
+  "lab:term/query": {
+   "topic": "lab:topic/sql",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "질의"
+  },
+  "lab:term/rollback": {
+   "topic": "lab:topic/transactions",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "롤백"
+  },
+  "lab:term/semi-structured-data": {
+   "topic": "lab:topic/document-kv-stores",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "반정형"
+  },
+  "lab:term/sql": {
+   "topic": "lab:topic/sql",
+   "score": 3,
+   "why": "이름 같음",
+   "ko": "SQL"
+  },
+  "lab:term/table": {
+   "topic": "lab:topic/relational-model",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "테이블"
+  },
+  "lab:term/transaction": {
+   "topic": "lab:topic/transactions",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "트랜잭션"
+  },
+  "lab:term/unstructured-data": {
+   "topic": "lab:topic/document-kv-stores",
+   "score": 3,
+   "why": "사람이 고름",
+   "ko": "비정형"
+  }
+ },
+ "retag": {
+  "from": [
+   "db"
+  ],
+  "to": [
+   "data"
+  ]
+ }
+}
